@@ -10,9 +10,9 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "| Mercado Livre 📦",
+  title: "Mercado Livre Brasil - Frete Grátis no mesmo dia",
   description:
-    "Frete grátis no dia ✓ Compre Iphone Se 2020 parcelado sem juros! Saiba mais sobre nossas incríveis ofertas e promoções em milhões de produtos.",
+    "Compre produtos com Frete Grátis no mesmo dia no Mercado Livre Brasil. Encontre milhares de marcas e produtos a preços incríveis.",
 };
 
 export default function RootLayout({
@@ -21,10 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="" lang="PT-BR" suppressHydrationWarning>
+    <html className="bg-grayML" lang="PT-BR" suppressHydrationWarning>
       <body className={roboto.className}>
         <Header />
-        {children}
+        <main className="m-auto w-screen min-h-screen h-10 tablet:w-[670px] notebook:w-[1000px] desktop:w-[1200px]">
+          {children}
+        </main>
       </body>
     </html>
   );

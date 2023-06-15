@@ -15,10 +15,19 @@ module.exports = {
       desktop: "1280px",
     },
     extend: {
+      animation: {
+        fadeImage: "fade 0.5s ease-in-out",
+      },
       colors: {
         yellowML: "#FEE600",
         grayML: "#EEE",
       },
+      keyframes: (theme) => ({
+        fade: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "100" },
+        },
+      }),
     },
   },
   plugins: [],
