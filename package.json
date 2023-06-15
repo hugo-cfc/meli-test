@@ -1,0 +1,23 @@
+{
+  "name": "meli-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/hugo-cfc/meli-test.git",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "husky install",
+    "commit": "git-cz"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.5",
+    "@commitlint/config-conventional": "^17.6.5",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.3"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
