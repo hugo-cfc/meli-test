@@ -21,6 +21,7 @@ module.exports = {
       colors: {
         yellowML: "#FEE600",
         grayML: "#EEE",
+        grayTextML: "#333",
       },
       keyframes: (theme) => ({
         fade: {

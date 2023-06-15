@@ -16,7 +16,7 @@ export default async function SearchResult({
   const products = await getProducts({ search: params.search });
 
   return (
-    <div>
+    <div className="mt-12 pb-32">
       {products.map((product) => (
         <Product key={product.id} product={product} />
       ))}
