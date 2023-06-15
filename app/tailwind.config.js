@@ -12,10 +12,14 @@ module.exports = {
     screens: {
       tablet: "670px",
       notebook: "1024px",
-      desktop: "1300px",
-      ultrawide: "1920px",
+      desktop: "1280px",
     },
-    extend: {},
+    extend: {
+      colors: {
+        yellowML: "#FEE600",
+        grayML: "#EEE",
+      },
+    },
   },
   plugins: [],
 };
