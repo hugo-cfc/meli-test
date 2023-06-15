@@ -27,6 +27,9 @@
   "plugins": ["react", "@typescript-eslint"],
   "settings": {
     "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
       "typescript": {
         "project": "./tsconfig.json"
       }
@@ -37,6 +40,7 @@
   },
   "rules": {
     "linebreak-style": "off",
+    "import/extensions": "off",
     "prettier/prettier": [
       "error",
       {
