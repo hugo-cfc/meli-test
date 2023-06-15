@@ -23,10 +23,11 @@ const Header = () => {
           onSubmit={handleSubmit}
         >
           <Input
-            className="px-2 py-1"
+            className="px-2 py-1 text-xs placeholder:font-normal placeholder-gray-300 tablet:text-md"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             buttonIcon={<Search className="w-4" />}
+            placeholder="Buscar produtos, marcas e muito mais"
           />
         </form>
       </div>

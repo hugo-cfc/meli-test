@@ -1,7 +1,5 @@
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import EmptySearch from "../Components/EmptySearch";
 
 export default function Home() {
-  return <h1>Hello, world!</h1>;
+  return <EmptySearch description="Busque o que você desejar" />;
 }
