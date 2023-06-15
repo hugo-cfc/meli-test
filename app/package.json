@@ -9,12 +9,7 @@
     "lint": "tsc --noEmit && eslint src/**/*.ts{,x} --cache --max-warnings=0",
     "lint:fix": "eslint src/**/*.ts{,x} --fix",
     "test": "jest --config jest.config.mjs",
-    "test:watch": "jest --config jest.config.mjs --watch",
-    "prepare": "npx husky install app/.husky",
-    "postinstall": "cp -R .husky/* ../.git/hooks"
-  },
-  "husky": {
-    "hooksPath": "../.git/hooks"
+    "test:watch": "jest --config jest.config.mjs --watch"
   },
   "dependencies": {
     "@next/font": "13.1.6",
