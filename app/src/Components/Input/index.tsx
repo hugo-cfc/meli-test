@@ -10,7 +10,10 @@ const Input = ({ buttonIcon, ...rest }: InputProps) => {
       <input style={{ flex: 1 }} {...rest} />
 
       {buttonIcon && (
-        <button type="submit" className="py-1 px-2 bg-grayML">
+        <button
+          type="submit"
+          className="py-1 px-2 bg-grayML transition-all hover:bg-gray-100"
+        >
           {buttonIcon}
         </button>
       )}

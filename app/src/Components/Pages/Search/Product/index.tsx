@@ -1,5 +1,5 @@
 import Image from "next/image";
-import IProduct from "../../@types/Product";
+import IProduct from "../../../../@types/Product";
 import Link from "next/link";
 import { Truck } from "lucide-react";
 
