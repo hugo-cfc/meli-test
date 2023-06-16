@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Products from "../../Components/Pages/Search/Products";
+import SorterMobile from "../../Components/Pages/Search/SorterMobile";
 
 interface Props {
   params: { search: string };
@@ -17,8 +18,12 @@ export function generateMetadata({ params }: Props): Metadata {
 
 export default function Search() {
   return (
-    <div className="mt-12 pb-32">
-      <Products />
-    </div>
+    <>
+      <SorterMobile />
+
+      <div className="mt-12 pb-32">
+        <Products />
+      </div>
+    </>
   );
 }
