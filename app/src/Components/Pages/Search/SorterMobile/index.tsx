@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowDownUp } from "lucide-react";
-import ModalSorter from "../ModalSorter";
+import ModalSorterMobile from "../ModalSorterMobile";
 import { useSearchContext } from "../../../../app/Context/searchContext";
 
 const SorterMobile = () => {
@@ -16,7 +16,7 @@ const SorterMobile = () => {
         <span className="text-sm font-light">Ordenar</span>
       </button>
 
-      <ModalSorter />
+      <ModalSorterMobile />
     </div>
   );
 };
