@@ -1,14 +1,19 @@
-import Product from "../@types/Product";
+import GetProductsData from "../@types/GetProducts";
 import { fetchWrapper } from "../services/fetchWrapper";
 
-interface GetProductsProps {
-  search: string;
-}
+const getProducts = async (search: string) => {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  const { query, results, sort, available_sorts, filters, available_filters } =
+    await fetchWrapper<GetProductsData>(search);
 
-const getProducts = async ({ search }: GetProductsProps) => {
-  const { results } = await fetchWrapper<{ results: Product[] }>(`${search}`);
-
-  return results;
+  return {
+    query,
+    results,
+    sortApi: sort,
+    available_sorts,
+    filters,
+    available_filters,
+  };
 };
 
 export default getProducts;

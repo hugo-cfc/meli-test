@@ -1,7 +1,7 @@
-import { GlobalContextProvider } from "./Context/searchContext";
+import { SearchContextProvider } from "./Context/searchContext";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
-  return <GlobalContextProvider>{children}</GlobalContextProvider>;
+  return <SearchContextProvider>{children}</SearchContextProvider>;
 };
 
 export default Providers;
