@@ -1,5 +1,3 @@
-import { useGlobalContext } from "../../app/Context/searchContext";
-import getProducts from "../../fetchers/getProducts";
 import { usePathname, useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
@@ -7,18 +5,12 @@ const useHeader = () => {
   const searchParams = usePathname();
   const router = useRouter();
 
-  const { setProducts } = useGlobalContext();
+  const formatedPathname = decodeURIComponent(searchParams.replace("/", ""));
 
-  const formatedPathname = searchParams.replace("/", "");
+  const [search, setSearch] = useState(formatedPathname);
 
-  const [search, setSearch] = useState("");
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const products = await getProducts({ search });
-
-    setProducts(products);
 
     router.push(`/${search}`);
   };
