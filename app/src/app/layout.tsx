@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import "./globals.css";
 import { Roboto } from "next/font/google";
 import Header from "../Components/Header";
+import Providers from "./Providers";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "700"],
@@ -21,12 +22,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="bg-grayML" lang="PT-BR" suppressHydrationWarning>
+    <html className="bg-grayML" lang="pt-BR" suppressHydrationWarning>
       <body className={roboto.className}>
-        <Header />
-        <main className="m-auto w-screen min-h-screen h-10 tablet:w-[670px] notebook:w-[1000px] desktop:w-[1200px]">
-          {children}
-        </main>
+        <Providers>
+          <Header />
+
+          <main className="m-auto w-screen min-h-screen h-10 tablet:w-[670px] notebook:w-[1000px] desktop:w-[1200px]">
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   );

@@ -1,25 +1,24 @@
-import getProducts from "../../fetchers/getProducts";
 import { Metadata } from "next";
-import Product from "../../Components/Product";
+import Products from "../../Components/Pages/Search/Products";
 
-export const metadata: Metadata = {
-  title: "| Mercado Livre 📦",
-  description:
-    "Compre produtos com Frete Grátis no mesmo dia no Mercado Livre Brasil. Encontre milhares de marcas e produtos a preços incríveis.",
-};
-
-export default async function SearchResult({
-  params,
-}: {
+interface Props {
   params: { search: string };
-}) {
-  const products = await getProducts({ search: params.search });
+}
 
+export function generateMetadata({ params }: Props): Metadata {
+  const search = params.search;
+
+  return {
+    title: `${search} | Mercado Livre 📦`,
+    description:
+      "Compre produtos com Frete Grátis no mesmo dia no Mercado Livre Brasil. Encontre milhares de marcas e produtos a preços incríveis.",
+  };
+}
+
+export default function Search() {
   return (
     <div className="mt-12 pb-32">
-      {products.map((product) => (
-        <Product key={product.id} product={product} />
-      ))}
+      <Products />
     </div>
   );
 }
