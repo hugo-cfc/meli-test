@@ -1,21 +1,10 @@
 import urlGenerator from "../../../../utils/URLgenerate";
-import { useGlobalContext } from "../../../../app/Context/searchContext";
+import { useSearchContext } from "../../../../app/Context/searchContext";
 import { useRouter } from "next/navigation";
 
 const useModalSorter = () => {
   const router = useRouter();
-  const { search, setIsSorterModalOpen } = useGlobalContext();
-
-  const options = [
-    {
-      id: "relevance",
-      name: "Mais relevantes",
-    },
-    {
-      id: "price_desc",
-      name: "Maior preço",
-    },
-  ];
+  const { search, setIsSorterModalOpen } = useSearchContext();
 
   const handleClickOnSortOption = (id: string) => {
     const generatedUrl = urlGenerator(search, {
@@ -27,7 +16,7 @@ const useModalSorter = () => {
     setIsSorterModalOpen(false);
   };
 
-  return { options, handleClickOnSortOption };
+  return { handleClickOnSortOption };
 };
 
 export default useModalSorter;

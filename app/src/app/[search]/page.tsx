@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Products from "../../Components/Pages/Search/Products";
 import SorterMobile from "../../Components/Pages/Search/SorterMobile";
+import Sorter from "../../Components/Pages/Search/Sorter";
 
 interface Props {
   params: { search: string };
@@ -21,7 +22,9 @@ export default function Search() {
     <>
       <SorterMobile />
 
-      <div className="mt-12 pb-32">
+      <Sorter />
+
+      <div className="pb-32 text-grayTextML">
         <Products />
       </div>
     </>

@@ -2,11 +2,11 @@
 
 import EmptySearch from "../../../../Components/EmptySearch";
 import Product from "../Product";
-import { useGlobalContext } from "../../../../app/Context/searchContext";
+import { useSearchContext } from "../../../../app/Context/searchContext";
 import useProducts from "./useProducts";
 
 const Products = () => {
-  const { products } = useGlobalContext();
+  const { products } = useSearchContext();
   const { isLoading } = useProducts();
 
   return (
