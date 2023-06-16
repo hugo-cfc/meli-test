@@ -17,6 +17,8 @@ module.exports = {
     extend: {
       animation: {
         fadeImage: "fade 0.5s ease-in-out",
+        bottomModal: "bottomModal 0.2s",
+        bottomModalOut: "bottomModalOut 0.2s",
       },
       colors: {
         yellowML: "#FEE600",
@@ -28,6 +30,14 @@ module.exports = {
         fade: {
           "0%": { opacity: "0" },
           "100%": { opacity: "100" },
+        },
+        bottomModal: {
+          "0%": { top: "100%" },
+          "100%": { top: "0" },
+        },
+        bottomModalOut: {
+          "0%": { top: "0" },
+          "100%": { top: "100%" },
         },
       }),
     },

@@ -13,5 +13,11 @@ export default interface Product {
   };
   thumbnail: string;
   condition: string;
-  free_shipping: boolean;
+  shipping: {
+    free_shipping: boolean;
+  };
+  sort: {
+    id: string;
+    name: string;
+  };
 }

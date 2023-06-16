@@ -2,14 +2,25 @@
 
 import { ArrowLeft } from "lucide-react";
 import useModalSorter from "./useModalSorter";
+import { useGlobalContext } from "../../../../app/Context/searchContext";
 
 const ModalSorter = () => {
-  const { options } = useModalSorter();
+  const { options, handleClickOnSortOption } = useModalSorter();
+  const { isSorterModalOpen, setIsSorterModalOpen, sort } = useGlobalContext();
 
   return (
-    <div className="absolute z-50 top-0 left-0 w-screen h-screen bg-white tablet:hidden">
+    <div
+      className={`fixed z-50 left-0 w-screen h-screen bg-white transition-all ${
+        isSorterModalOpen
+          ? "animate-bottomModal top-0 "
+          : "animate-bottomModalOut top-[101%]"
+      } tablet:hidden`}
+    >
       <div className="py-4 px-8">
-        <button className="w-9 py-1 aspect-square">
+        <button
+          className="w-9 py-1 aspect-square"
+          onClick={() => setIsSorterModalOpen(false)}
+        >
           <ArrowLeft className="text-blueML w-8" />
         </button>
 
@@ -19,11 +30,14 @@ const ModalSorter = () => {
       <ul className="mt-10">
         {options.map((option) => (
           <li key={option.id} className="border-y-[1px] border-grayML relative">
-            {option.name === option.name && (
-              <hr className="absolute left-1 top-0 w-1.5 h-full bg-blueML" />
+            {sort === option.id && (
+              <hr className="absolute left-0.5 top-0 w-1.5 h-full bg-blueML" />
             )}
 
-            <button className="text-black font-light antialiased px-8 py-5">
+            <button
+              className="text-black font-light antialiased px-8 py-5 w-full text-start"
+              onClick={() => handleClickOnSortOption(option.id)}
+            >
               {option.name}
             </button>
           </li>

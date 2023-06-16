@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: "Mercado Livre Brasil - Frete Grátis no mesmo dia",
   description:
     "Compre produtos com Frete Grátis no mesmo dia no Mercado Livre Brasil. Encontre milhares de marcas e produtos a preços incríveis.",
+  themeColor: "#FEE600",
 };
 
 export default function RootLayout({

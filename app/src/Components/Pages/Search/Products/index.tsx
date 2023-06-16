@@ -3,11 +3,11 @@
 import EmptySearch from "../../../../Components/EmptySearch";
 import Product from "../Product";
 import { useGlobalContext } from "../../../../app/Context/searchContext";
-import useProducs from "./useProducts";
+import useProducts from "./useProducts";
 
 const Products = () => {
   const { products } = useGlobalContext();
-  const { isLoading } = useProducs();
+  const { isLoading } = useProducts();
 
   return (
     <>

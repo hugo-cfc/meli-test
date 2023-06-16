@@ -8,17 +8,17 @@ interface ProductProps {
 }
 
 const Product = ({ product }: ProductProps) => {
-  const formatedPrice = new Intl.NumberFormat("es-AR", {
+  const formattedPrice = new Intl.NumberFormat("es-AR", {
     style: "currency",
     currency: "ARS",
     maximumFractionDigits: 0,
   }).format(product.price);
 
-  const formatedInstallmentsValue = new Intl.NumberFormat("es-AR", {
+  const formattedInstallmentsValue = new Intl.NumberFormat("es-AR", {
     style: "currency",
     currency: "ARS",
     maximumFractionDigits: 0,
-  }).format(Number(product.installments.amount));
+  }).format(Number(product.installments?.amount));
 
   return (
     <Link href={product.permalink}>
@@ -38,7 +38,7 @@ const Product = ({ product }: ProductProps) => {
             <div className="flex items-center">
               <div className="w-full flex justify-between tablet:pr-12">
                 <h1 className="text-grayTextML font-light text-xl desktop:text-2xl">
-                  {formatedPrice}
+                  {formattedPrice}
                 </h1>
 
                 <p className="text-gray-400 text-[10px] hidden tablet:flex desktop:text-xs">
@@ -47,7 +47,7 @@ const Product = ({ product }: ProductProps) => {
               </div>
 
               <div>
-                {product.free_shipping && (
+                {product.shipping.free_shipping && (
                   <div className="bg-green-500 w-4 h-4 rounded-full flex items-center justify-center">
                     <Truck className="w-2" />
                   </div>
@@ -59,13 +59,15 @@ const Product = ({ product }: ProductProps) => {
               {product.title}
             </p>
 
-            <span className="text-green-500 font-light text-xs flex gap-x-[2px] desktop:text-sm">
-              <div className="text-grayTextML">
-                <span>em</span>
-              </div>{" "}
-              {product.installments.quantity}x de&nbsp;
-              {formatedInstallmentsValue}
-            </span>
+            {product.installments && (
+              <span className="text-green-500 font-light text-xs flex gap-x-[2px] desktop:text-sm">
+                <div className="text-grayTextML">
+                  <span>em</span>
+                </div>{" "}
+                {product.installments.quantity}x de&nbsp;
+                {formattedInstallmentsValue}
+              </span>
+            )}
 
             <p className="text-xs text-grayTextML tablet:hidden">
               {product.address.state_name}

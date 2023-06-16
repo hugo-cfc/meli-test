@@ -1,4 +1,11 @@
+import urlGenerator from "../../../../utils/URLgenerate";
+import { useGlobalContext } from "../../../../app/Context/searchContext";
+import { useRouter } from "next/navigation";
+
 const useModalSorter = () => {
+  const router = useRouter();
+  const { search, setIsSorterModalOpen } = useGlobalContext();
+
   const options = [
     {
       id: "relevance",
@@ -10,7 +17,17 @@ const useModalSorter = () => {
     },
   ];
 
-  return { options };
+  const handleClickOnSortOption = (id: string) => {
+    const generatedUrl = urlGenerator(search, {
+      sort: id,
+    });
+
+    router.push(generatedUrl);
+
+    setIsSorterModalOpen(false);
+  };
+
+  return { options, handleClickOnSortOption };
 };
 
 export default useModalSorter;
