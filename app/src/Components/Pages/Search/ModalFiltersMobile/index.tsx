@@ -10,7 +10,7 @@ const ModalSorterMobile = () => {
   const { sort, availableSorts } = useSearchContext();
 
   return (
-    <BottomSheet name="filter">
+    <BottomSheet modalType="filter">
       <div className="py-4 px-8">
         <button className="w-9 py-1 aspect-square" onClick={handleCloseModal}>
           <ArrowLeft className="text-blueML w-8" />

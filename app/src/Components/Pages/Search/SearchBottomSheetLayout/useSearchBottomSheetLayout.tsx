@@ -1,8 +1,7 @@
-import urlGenerator from "../../../../utils/URLgenerate";
 import { useSearchContext } from "../../../../app/Context/searchContext";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const useModalSorterMobile = () => {
+const useSearchBottomSheetLayout = () => {
   const router = useRouter();
   const { search } = useSearchContext();
   const searchParams = useSearchParams();
@@ -19,17 +18,7 @@ const useModalSorterMobile = () => {
     });
   };
 
-  const handleClickOnSortOption = (id: string) => {
-    const generatedUrl = urlGenerator(search, {
-      sort: id,
-    });
-
-    queryParams.delete("modal-type");
-
-    router.push(generatedUrl);
-  };
-
-  return { handleClickOnSortOption, handleCloseModal };
+  return { handleCloseModal };
 };
 
-export default useModalSorterMobile;
+export default useSearchBottomSheetLayout;

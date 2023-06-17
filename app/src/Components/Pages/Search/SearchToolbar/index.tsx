@@ -1,12 +1,12 @@
 "use client";
 
 import { ArrowDownUp, SlidersHorizontal } from "lucide-react";
-import ModalSorterMobile from "../ModalSorterMobile";
+import SorterMobileModal from "../SorterMobileModal";
 import ModalFiltersMobile from "../ModalFiltersMobile";
-import useSorterMobile from "./useSorterMobile";
+import useSearchToolbar from "./useSearchToolbar";
 
-const SorterMobile = () => {
-  const { handleOpenModal } = useSorterMobile();
+const SearchToolbar = () => {
+  const { handleOpenModal } = useSearchToolbar();
 
   return (
     <div className="bg-white w-screen h-12 mb-12 tablet:hidden flex">
@@ -26,10 +26,10 @@ const SorterMobile = () => {
         <span className="text-sm font-light">Filtrar</span>
       </button>
 
-      <ModalSorterMobile />
+      <SorterMobileModal />
       <ModalFiltersMobile />
     </div>
   );
 };
 
-export default SorterMobile;
+export default SearchToolbar;

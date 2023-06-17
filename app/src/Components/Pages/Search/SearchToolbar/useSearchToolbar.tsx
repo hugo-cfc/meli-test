@@ -1,7 +1,7 @@
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-const useSorterMobile = () => {
+const useSearchToolbar = () => {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -25,4 +25,4 @@ const useSorterMobile = () => {
   return { handleOpenModal };
 };
 
-export default useSorterMobile;
+export default useSearchToolbar;
