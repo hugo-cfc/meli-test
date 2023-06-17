@@ -2,7 +2,7 @@ import urlGenerator from "../../../../utils/URLgenerate";
 import { useSearchContext } from "../../../../app/Context/searchContext";
 import { useRouter } from "next/navigation";
 
-const useModalSorter = () => {
+const useDropdownSorter = () => {
   const router = useRouter();
   const { search, setIsSorterDropdownOpen } = useSearchContext();
 
@@ -19,4 +19,4 @@ const useModalSorter = () => {
   return { handleClickOnSortOption };
 };
 
-export default useModalSorter;
+export default useDropdownSorter;

@@ -1,10 +1,10 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import ModalSorter from "../ModalSorter";
+import DropdownSorter from "../DropdownSorter";
 import { useSearchContext } from "../../../../app/Context/searchContext";
 
-const SorterMobile = () => {
+const Sorter = () => {
   const { isSorterDropdownOpen, setIsSorterDropdownOpen, sort } =
     useSearchContext();
 
@@ -29,9 +29,9 @@ const SorterMobile = () => {
         />
       </button>
 
-      <ModalSorter />
+      <DropdownSorter />
     </div>
   );
 };
 
-export default SorterMobile;
+export default Sorter;

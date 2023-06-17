@@ -1,10 +1,10 @@
 "use client";
 
-import useModalSorter from "./useModalSorter";
+import useDropdownSorter from "./useDropdownSorter";
 import { useSearchContext } from "../../../../app/Context/searchContext";
 
-const ModalSorter = () => {
-  const { handleClickOnSortOption } = useModalSorter();
+const DropdownSorter = () => {
+  const { handleClickOnSortOption } = useDropdownSorter();
   const { isSorterDropdownOpen, sort, availableSorts } = useSearchContext();
 
   return (
@@ -41,4 +41,4 @@ const ModalSorter = () => {
   );
 };
 
-export default ModalSorter;
+export default DropdownSorter;

@@ -1,6 +1,5 @@
 "use client";
 
-import { ArrowLeft } from "lucide-react";
 import useFiltersMobileModal from "./useFiltersMobileModal";
 import { useSearchContext } from "../../../../app/Context/searchContext";
 import BottomSheet from "../../../BottomSheet";
