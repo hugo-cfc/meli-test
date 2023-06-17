@@ -1,25 +1,35 @@
-import urlGenerator from "../../../../utils/URLgenerate";
+import urlGenerator from "../../../../utils/urlGenerator";
 import { useSearchContext } from "../../../../app/Context/searchContext";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const useFiltersMobileModal = () => {
   const router = useRouter();
-  const { search } = useSearchContext();
+  const { search, availableFilters } = useSearchContext();
   const searchParams = useSearchParams();
+
+  const currentSort = searchParams.get("sort");
 
   const queryParams = new URLSearchParams(searchParams);
 
-  const handleClickOnSortOption = (id: string) => {
-    const generatedUrl = urlGenerator(search, {
-      sort: id,
-    });
+  const [priceFilters] = availableFilters.filter(
+    (filter) => filter.id === "price"
+  );
+
+  const handleClickOnFilterOption = (id: string) => {
+    const generatedUrl = urlGenerator(
+      { api: false, pathname: search },
+      {
+        sort: currentSort,
+        price: id,
+      }
+    );
 
     queryParams.delete("modal-type");
 
     router.push(generatedUrl);
   };
 
-  return { handleClickOnSortOption };
+  return { handleClickOnFilterOption, priceFilters };
 };
 
 export default useFiltersMobileModal;

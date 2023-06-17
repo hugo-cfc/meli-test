@@ -6,31 +6,27 @@ import BottomSheet from "../../../BottomSheet";
 import SearchBottomSheetLayout from "../SearchBottomSheetLayout";
 
 const FiltersMobileModal = () => {
-  const { handleClickOnSortOption } = useFiltersMobileModal();
-  const { sort, availableSorts } = useSearchContext();
+  const { handleClickOnFilterOption, priceFilters } = useFiltersMobileModal();
+  const { filter: currentFilter } = useSearchContext();
 
   return (
     <BottomSheet modalType="filter">
       <SearchBottomSheetLayout title="Filtrar por preço" modalType="filter">
-        <ul className="mt-10">
-          {availableSorts.sort().map((option) => (
-            <li
-              key={option.id}
-              className="border-y-[1px] border-grayML relative"
+        <div className="mt-10">
+          {priceFilters?.values.map((filter) => (
+            <button
+              key={filter.id}
+              className="text-blueML text-lg font-light antialiased px-8 py-5 w-full text-start flex items-center gap-x-2"
+              onClick={() => handleClickOnFilterOption(filter.id)}
             >
-              {sort?.id === option.id && (
+              {currentFilter?.values[0].id === filter.id && (
                 <hr className="absolute left-0.5 top-0 w-1.5 h-full bg-blueML" />
               )}
-
-              <button
-                className="text-grayTextML font-light antialiased px-8 py-5 w-full text-start"
-                onClick={() => handleClickOnSortOption(option.id)}
-              >
-                {option.name}
-              </button>
-            </li>
+              {filter.name}
+              <span className="text-gray-400 text-sm">({filter.results})</span>
+            </button>
           ))}
-        </ul>
+        </div>
       </SearchBottomSheetLayout>
     </BottomSheet>
   );

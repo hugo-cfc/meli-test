@@ -1,4 +1,4 @@
-import urlGenerator from "../../../../utils/URLgenerate";
+import urlGenerator from "../../../../utils/urlGenerator";
 import { useSearchContext } from "../../../../app/Context/searchContext";
 import { useRouter } from "next/navigation";
 
@@ -7,9 +7,12 @@ const useDropdownSorter = () => {
   const { search, setIsSorterDropdownOpen } = useSearchContext();
 
   const handleClickOnSortOption = (id: string) => {
-    const generatedUrl = urlGenerator(search, {
-      sort: id,
-    });
+    const generatedUrl = urlGenerator(
+      { pathname: search, api: false },
+      {
+        sort: id,
+      }
+    );
 
     router.push(generatedUrl);
 

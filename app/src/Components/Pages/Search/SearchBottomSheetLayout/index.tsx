@@ -17,6 +17,7 @@ const SearchBottomSheetLayout = ({
 }: SearchBottomSheetLayoutProps) => {
   const { handleCloseModal } = useSearchBottomSheetLayout();
   const searchParams = useSearchParams();
+
   const currentModalType = searchParams.get("modal-type");
 
   return (

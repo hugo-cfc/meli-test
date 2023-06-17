@@ -7,6 +7,6 @@ export default interface GetProduct {
   results: Product[];
   sort: Sort;
   available_sorts: Sort[];
-  filters: Filter[] | null;
+  filters: Filter[];
   available_filters: Filter[];
 }

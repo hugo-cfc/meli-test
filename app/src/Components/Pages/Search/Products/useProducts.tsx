@@ -3,7 +3,7 @@ import getProducts from "../../../../fetchers/getProducts";
 import { useSearchContext } from "../../../../app/Context/searchContext";
 import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import urlGenerator from "../../../../utils/URLgenerate";
+import urlGenerator from "../../../../utils/urlGenerator";
 
 const useProducts = () => {
   const {
@@ -11,7 +11,6 @@ const useProducts = () => {
     setSearch,
     setSort,
     setAvailableSorts,
-    setFilter,
     setAvailableFilters,
   } = useSearchContext();
 
@@ -25,10 +24,16 @@ const useProducts = () => {
 
   const formattedPathname = decodeURIComponent(searchPath.replace("/", ""));
 
-  const generatedUrl = urlGenerator(formattedPathname, {
-    sort: paramsSort,
-    price: paramsPrice,
-  }).replace("?", "&");
+  const generatedUrl = urlGenerator(
+    {
+      api: true,
+      pathname: formattedPathname,
+    },
+    {
+      sort: paramsSort,
+      price: paramsPrice,
+    }
+  );
 
   useEffect(() => {
     setIsLoading(true);
@@ -37,28 +42,12 @@ const useProducts = () => {
 
     (async () => {
       try {
-        const {
-          results,
-          available_sorts,
-          filters,
-          available_filters,
-          sortApi,
-        } = await getProducts(generatedUrl);
-
-        const sortSortersById = [sortApi, ...available_sorts].sort(function (
-          a,
-          b
-        ) {
-          const sorterA = a.id;
-          const sorterB = b.id;
-
-          return sorterB < sorterA ? -1 : sorterB > sorterA ? 1 : 0;
-        });
+        const { results, available_sorts, available_filters, sortApi } =
+          await getProducts(generatedUrl);
 
         setProducts(results);
         setSort(sortApi);
-        setAvailableSorts(sortSortersById);
-        setFilter(filters);
+        setAvailableSorts(available_sorts);
         setAvailableFilters(available_filters);
         setIsLoading(false);
       } catch (error) {
@@ -67,7 +56,7 @@ const useProducts = () => {
         setIsLoading(false);
       }
     })();
-  }, [paramsSort]);
+  }, [paramsSort, paramsPrice]);
 
   return {
     isLoading,

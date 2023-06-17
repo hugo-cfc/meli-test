@@ -1,4 +1,4 @@
-import urlGenerator from "../../../../utils/URLgenerate";
+import urlGenerator from "../../../../utils/urlGenerator";
 import { useSearchContext } from "../../../../app/Context/searchContext";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -9,10 +9,16 @@ const useSorterMobileModal = () => {
 
   const queryParams = new URLSearchParams(searchParams);
 
+  const currentPrice = searchParams.get("price");
+
   const handleClickOnSortOption = (id: string) => {
-    const generatedUrl = urlGenerator(search, {
-      sort: id,
-    });
+    const generatedUrl = urlGenerator(
+      { pathname: search, api: false },
+      {
+        sort: id,
+        price: currentPrice,
+      }
+    );
 
     queryParams.delete("modal-type");
 

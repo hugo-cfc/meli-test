@@ -1,10 +1,10 @@
 import GetProductsData from "../@types/GetProducts";
-import { fetchWrapper } from "../services/fetchWrapper";
+import { fetchAppApi } from "../services/fetchAppApi";
 
 const getProducts = async (search: string) => {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   const { query, results, sort, available_sorts, filters, available_filters } =
-    await fetchWrapper<GetProductsData>(search);
+    await fetchAppApi<GetProductsData>(search);
 
   return {
     query,
