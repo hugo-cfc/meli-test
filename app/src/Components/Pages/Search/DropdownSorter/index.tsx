@@ -2,10 +2,13 @@
 
 import useDropdownSorter from "./useDropdownSorter";
 import { useSearchContext } from "../../../../app/Context/searchContext";
+import { useSearchParams } from "next/navigation";
 
 const DropdownSorter = () => {
   const { handleClickOnSortOption } = useDropdownSorter();
-  const { isSorterDropdownOpen, sort, availableSorts } = useSearchContext();
+  const { isSorterDropdownOpen, availableSorts } = useSearchContext();
+  const searchParams = useSearchParams();
+  const sort = searchParams.get("sort");
 
   return (
     <div
@@ -19,13 +22,13 @@ const DropdownSorter = () => {
             key={option.id}
             className="border-y-[1px] border-grayML relative transition-all hover:bg-slate-200"
           >
-            {sort?.id === option.id && (
+            {sort === option.id && (
               <hr className="absolute left-0 top-0 w-1.5 h-full bg-blueML" />
             )}
 
             <button
               className={`${
-                sort?.id === option.id ? "text-blueML" : "text-grayTextML"
+                sort === option.id ? "text-blueML" : "text-grayTextML"
               } font-light antialiased px-4 py-2 w-full text-start text-sm hover:text-blueML`}
               onClick={() => handleClickOnSortOption(option.id)}
             >
