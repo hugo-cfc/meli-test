@@ -1,13 +1,15 @@
+"use client";
+
+import { useSearchParams } from "next/navigation";
+
 interface BottomSheetProps {
   name: string;
   children: React.ReactNode;
-  params?: {
-    "modal-type": string;
-  };
 }
 
-const BottomSheet = ({ name, children, params }: BottomSheetProps) => {
-  const modalType = params?.["modal-type"];
+const BottomSheet = ({ name, children }: BottomSheetProps) => {
+  const searchParams = useSearchParams();
+  const modalType = searchParams.get("modal-type");
 
   return (
     <div
