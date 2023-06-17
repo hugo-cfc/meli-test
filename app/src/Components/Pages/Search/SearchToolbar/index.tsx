@@ -2,7 +2,7 @@
 
 import { ArrowDownUp, SlidersHorizontal } from "lucide-react";
 import SorterMobileModal from "../SorterMobileModal";
-import ModalFiltersMobile from "../ModalFiltersMobile";
+import FiltersMobileModal from "../FiltersMobileModal";
 import useSearchToolbar from "./useSearchToolbar";
 
 const SearchToolbar = () => {
@@ -27,7 +27,7 @@ const SearchToolbar = () => {
       </button>
 
       <SorterMobileModal />
-      <ModalFiltersMobile />
+      <FiltersMobileModal />
     </div>
   );
 };
