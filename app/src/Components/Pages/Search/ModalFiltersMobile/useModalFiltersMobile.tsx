@@ -2,7 +2,7 @@ import urlGenerator from "../../../../utils/URLgenerate";
 import { useSearchContext } from "../../../../app/Context/searchContext";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const useModalSorterMobile = () => {
+const useModalFiltersMobile = () => {
   const router = useRouter();
   const { search } = useSearchContext();
   const searchParams = useSearchParams();
@@ -24,12 +24,10 @@ const useModalSorterMobile = () => {
       sort: id,
     });
 
-    queryParams.delete("modal-type");
-
     router.push(generatedUrl);
   };
 
   return { handleClickOnSortOption, handleCloseModal };
 };
 
-export default useModalSorterMobile;
+export default useModalFiltersMobile;

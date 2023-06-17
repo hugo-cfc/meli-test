@@ -15,8 +15,6 @@ import Filter from "../../@types/Filter";
 interface ContextProps {
   products: Product[];
   setProducts: Dispatch<SetStateAction<Product[]>>;
-  isSorterModalOpen: boolean;
-  setIsSorterModalOpen: Dispatch<SetStateAction<boolean>>;
   isSorterDropdownOpen: boolean;
   setIsSorterDropdownOpen: Dispatch<SetStateAction<boolean>>;
   search: string;
@@ -34,8 +32,6 @@ interface ContextProps {
 const SearchContext = createContext<ContextProps>({
   products: [],
   setProducts: () => [],
-  isSorterModalOpen: false,
-  setIsSorterModalOpen: () => false,
   isSorterDropdownOpen: false,
   setIsSorterDropdownOpen: () => false,
   search: "",
@@ -56,7 +52,6 @@ export const SearchContextProvider = ({
   children: ReactNode;
 }) => {
   const [products, setProducts] = useState<[] | Product[]>([]);
-  const [isSorterModalOpen, setIsSorterModalOpen] = useState(false);
   const [isSorterDropdownOpen, setIsSorterDropdownOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<Sort | null>(null);
@@ -69,8 +64,6 @@ export const SearchContextProvider = ({
       value={{
         products,
         setProducts,
-        isSorterModalOpen,
-        setIsSorterModalOpen,
         isSorterDropdownOpen,
         setIsSorterDropdownOpen,
         search,
