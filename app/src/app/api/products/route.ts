@@ -34,14 +34,12 @@ export async function GET(request: NextRequest) {
     (currentFilter) => currentFilter.id === "price"
   );
 
-  const allAvailablePriceFilters = [...filters, avaiablePriceFilters];
-
   return NextResponse.json({
     query,
     results,
     sortApi,
     available_sorts: sortSortersById,
     filters,
-    available_filters: allAvailablePriceFilters,
+    availableFilters: avaiablePriceFilters,
   });
 }

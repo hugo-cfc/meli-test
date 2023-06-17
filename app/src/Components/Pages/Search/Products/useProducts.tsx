@@ -42,13 +42,13 @@ const useProducts = () => {
 
     (async () => {
       try {
-        const { results, available_sorts, available_filters, sortApi } =
+        const { results, available_sorts, availableFilters, sortApi } =
           await getProducts(generatedUrl);
 
         setProducts(results);
         setSort(sortApi);
         setAvailableSorts(available_sorts);
-        setAvailableFilters(available_filters);
+        setAvailableFilters(availableFilters);
         setIsLoading(false);
       } catch (error) {
         // console.error("Erro ao obter produtos:", error);

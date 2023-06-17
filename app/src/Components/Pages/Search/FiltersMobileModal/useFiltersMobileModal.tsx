@@ -11,10 +11,6 @@ const useFiltersMobileModal = () => {
 
   const queryParams = new URLSearchParams(searchParams);
 
-  const [priceFilters] = availableFilters.filter(
-    (filter) => filter.id === "price"
-  );
-
   const handleClickOnFilterOption = (id: string) => {
     const generatedUrl = urlGenerator(
       { api: false, pathname: search },
@@ -29,7 +25,7 @@ const useFiltersMobileModal = () => {
     router.push(generatedUrl);
   };
 
-  return { handleClickOnFilterOption, priceFilters };
+  return { handleClickOnFilterOption, availableFilters };
 };
 
 export default useFiltersMobileModal;

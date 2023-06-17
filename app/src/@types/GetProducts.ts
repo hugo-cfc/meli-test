@@ -8,5 +8,6 @@ export default interface GetProduct {
   sort: Sort;
   available_sorts: Sort[];
   filters: Filter[];
+  availableFilters: Filter;
   available_filters: Filter[];
 }

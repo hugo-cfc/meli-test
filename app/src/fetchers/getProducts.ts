@@ -3,7 +3,7 @@ import { fetchAppApi } from "../services/fetchAppApi";
 
 const getProducts = async (search: string) => {
   // eslint-disable-next-line @typescript-eslint/naming-convention
-  const { query, results, sort, available_sorts, filters, available_filters } =
+  const { query, results, sort, available_sorts, filters, availableFilters } =
     await fetchAppApi<GetProductsData>(search);
 
   return {
@@ -12,7 +12,7 @@ const getProducts = async (search: string) => {
     sortApi: sort,
     available_sorts,
     filters,
-    available_filters,
+    availableFilters,
   };
 };
 
