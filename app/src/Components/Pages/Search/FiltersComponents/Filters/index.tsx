@@ -24,7 +24,7 @@ const Filters = () => {
     <div className="hidden flex-col col-start-1 col-end-3 tablet:flex">
       <h1 className="text-grayTextML text-2xl">{search}</h1>
 
-      <legend className="text-grayTextML text-xs font-thin mb-4">
+      <legend className="text-grayTextML text-xs font-thin mb-4 desktop:text-sm">
         {totalResults} resultados
       </legend>
 
@@ -40,7 +40,7 @@ const Filters = () => {
           {availableFilters?.values.map((filter) => (
             <li
               key={filter.id}
-              className="text-grayTextML text-xs font-light antialiased text-start flex items-center gap-x-2 mb-1"
+              className="text-grayTextML text-xs font-light antialiased text-start flex items-center gap-x-2 mb-1 desktop:text-sm w-fit"
               onClick={() => handleClickOnFilterOption(filter.id)}
             >
               {filter.name}
@@ -61,7 +61,7 @@ const Filters = () => {
             error={isValidMinValue}
             value={minValue}
             onChange={(e) => setMinValue(e.target.value)}
-            className="w-14 px-1 py-0.5 bg-white border-[1px] border-gray-400 rounded-md text-xs outline-0 focus:border-blueML focus:border-2"
+            className="w-16 px-1 py-0.5 bg-white border-[1px] border-gray-400 rounded-md text-xs outline-0 focus:border-blueML focus:border-2 desktop:py-1"
           />
 
           <span>-</span>
@@ -72,7 +72,7 @@ const Filters = () => {
             error={isValidMaxValue}
             value={maxValue}
             onChange={(e) => setMaxValue(e.target.value)}
-            className="w-14 px-1 py-0.5 bg-white border-[1px] border-gray-400 rounded-md text-xs outline-0 focus:border-blueML focus:border-2"
+            className="w-16 px-1 py-0.5 bg-white border-[1px] border-gray-400 rounded-md text-xs outline-0 focus:border-blueML focus:border-2 desktop:py-1"
           />
 
           <button
