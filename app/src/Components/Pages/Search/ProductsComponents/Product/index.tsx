@@ -31,6 +31,8 @@ const Product = ({ product }: ProductProps) => {
               alt={product.title}
               width={160}
               height={160}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOUk5NfBQABxAEHa9/cKwAAAABJRU5ErkJggg=="
             />
           </div>
 
