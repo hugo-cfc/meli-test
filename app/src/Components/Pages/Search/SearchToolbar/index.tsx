@@ -8,10 +8,10 @@ import SearchDetails from "../SearchDetails";
 
 const SearchToolbar = () => {
   const { handleOpenModal, pathname, toolbarOptions } = useSearchToolbar();
-  const { availableFilters, filters } = useSearchContext();
+  const { availableFilters, filters, totalResults } = useSearchContext();
 
   return (
-    <div className="mb-4">
+    <div className={`mb-4 ${totalResults === 0 ? "hidden" : "tablet:flex"}`}>
       <div className="bg-white w-screen h-12 tablet:hidden flex">
         {toolbarOptions.map((item) => (
           <button

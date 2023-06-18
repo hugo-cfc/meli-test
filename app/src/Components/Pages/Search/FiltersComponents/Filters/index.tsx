@@ -21,11 +21,15 @@ const Filters = () => {
   } = useFilters();
 
   return (
-    <div className="hidden flex-col col-start-1 col-end-3 tablet:flex">
+    <div
+      className={`hidden flex-col col-start-1 col-end-3 ${
+        totalResults == 0 ? "tablet:hidden" : "tablet:flex"
+      }`}
+    >
       <h1 className="text-grayTextML text-2xl">{search}</h1>
 
       <legend className="text-grayTextML text-xs font-thin mb-4 desktop:text-sm">
-        {totalResults} resultados
+        {totalResults} {totalResults === 1 ? "resultado" : "resultados"}
       </legend>
 
       {filters?.map((filter) => {
@@ -61,10 +65,10 @@ const Filters = () => {
             error={isValidMinValue}
             value={minValue}
             onChange={(e) => setMinValue(e.target.value)}
-            className="w-16 px-1 py-0.5 bg-white border-[1px] border-gray-400 rounded-md text-xs outline-0 focus:border-blueML focus:border-2 desktop:py-1"
+            className="w-16 px-1 py-0.5 bg-white border-[1px] border-gray-400 rounded-md text-xs outline-0 focus:border-blueML focus:border-2 notebook:w-14 desktop:py-1"
           />
 
-          <span>-</span>
+          <span className="text-grayTextML">-</span>
 
           <Input
             type="text"
@@ -72,7 +76,7 @@ const Filters = () => {
             error={isValidMaxValue}
             value={maxValue}
             onChange={(e) => setMaxValue(e.target.value)}
-            className="w-16 px-1 py-0.5 bg-white border-[1px] border-gray-400 rounded-md text-xs outline-0 focus:border-blueML focus:border-2 desktop:py-1"
+            className="w-16 px-1 py-0.5 bg-white border-[1px] border-gray-400 rounded-md text-xs outline-0 focus:border-blueML focus:border-2 notebook:w-14 desktop:py-1"
           />
 
           <button

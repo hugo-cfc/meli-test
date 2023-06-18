@@ -5,11 +5,15 @@ import DropdownSorter from "../DropdownSorter";
 import { useSearchContext } from "../../../../../app/Context/searchContext";
 
 const Sorter = () => {
-  const { isSorterDropdownOpen, setIsSorterDropdownOpen, sort } =
+  const { isSorterDropdownOpen, setIsSorterDropdownOpen, sort, totalResults } =
     useSearchContext();
 
   return (
-    <div className="hidden tablet:flex mt-12 mb-4 w-full justify-end items-center gap-x-1.5 relative">
+    <div
+      className={`hidden mt-12 mb-4 w-full justify-end items-center gap-x-1.5 relative ${
+        totalResults === 0 ? "tablet:hidden" : "tablet:flex"
+      }`}
+    >
       <span className="text-grayTextML text-sm">Ordernar por</span>
       <button
         className="flex items-center justify-center gap-x-1 transition-all hover:text-blueML"

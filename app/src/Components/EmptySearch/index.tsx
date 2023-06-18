@@ -14,7 +14,9 @@ export default function EmptySearch({ description }: EmptySearchProps) {
         alt="Busca no site"
       />
 
-      <h1 className="text-gray-600 tablet:text-xl">{description}</h1>
+      <h1 className="text-gray-600 tablet:text-xl text-center">
+        {description}
+      </h1>
     </div>
   );
 }

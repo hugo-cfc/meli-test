@@ -25,7 +25,7 @@ export default function Search() {
 
       <Sorter />
 
-      <div className="pb-32 text-grayTextML tablet:grid tablet:grid-cols-8 tablet:gap-x-4">
+      <div className="pb-32 text-grayTextML tablet:grid tablet:grid-cols-8 tablet:gap-x-4 notebook:grid-cols-12">
         <Filters />
         <Products />
       </div>
