@@ -1,9 +1,9 @@
-import urlGenerator from "../../../../utils/urlGenerator";
-import { useSearchContext } from "../../../../app/Context/searchContext";
+import urlGenerator from "../utils/urlGenerator";
+import { useSearchContext } from "../app/Context/searchContext";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useState } from "react";
 
-const useFiltersMobileModal = () => {
+const useFilters = () => {
   const router = useRouter();
   const { search, availableFilters } = useSearchContext();
   const searchParams = useSearchParams();
@@ -43,6 +43,9 @@ const useFiltersMobileModal = () => {
   const handleSubmitManualFilterOption = (e: FormEvent) => {
     e.preventDefault();
 
+    setMinValue("");
+    setMaxValue("");
+
     handleClickOnFilterOption(manualFilterId);
   };
 
@@ -59,4 +62,4 @@ const useFiltersMobileModal = () => {
   };
 };
 
-export default useFiltersMobileModal;
+export default useFilters;

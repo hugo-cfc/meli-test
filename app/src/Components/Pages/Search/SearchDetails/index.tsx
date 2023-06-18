@@ -1,5 +1,5 @@
 import Filter from "../../../../@types/Filter";
-import FilterBadge from "../FilterBadge";
+import FilterBadge from "../FiltersComponents/FilterBadge";
 
 interface SearchDetailsProps {
   search: string;
@@ -9,7 +9,7 @@ interface SearchDetailsProps {
 const SearchDetails = ({ search, filters }: SearchDetailsProps) => {
   return (
     <div className="flex flex-col gap-y-2 mt-4 px-4 tablet:hidden">
-      <h1 className="text-grayTextML">{search}</h1>
+      <h1 className="text-grayTextML">{decodeURIComponent(search)}</h1>
 
       {filters?.map((filter) => {
         if (filter.id !== "price") return;

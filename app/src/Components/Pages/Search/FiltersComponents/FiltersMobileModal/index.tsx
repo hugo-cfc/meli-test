@@ -1,10 +1,10 @@
 "use client";
 
-import useFiltersMobileModal from "./useFiltersMobileModal";
-import BottomSheet from "../../../BottomSheet";
-import SearchBottomSheetLayout from "../SearchBottomSheetLayout";
+import BottomSheet from "../../../../BottomSheet";
+import SearchBottomSheetLayout from "../../SearchBottomSheetLayout";
 import { ChevronRight } from "lucide-react";
-import Input from "../../../../Components/Input";
+import Input from "../../../../Input";
+import useFilters from "../../../../../hooks/useFilters";
 
 const FiltersMobileModal = () => {
   const {
@@ -17,7 +17,7 @@ const FiltersMobileModal = () => {
     setMaxValue,
     isValidMinValue,
     isValidMaxValue,
-  } = useFiltersMobileModal();
+  } = useFilters();
 
   return (
     <BottomSheet modalType="filter">
@@ -35,7 +35,7 @@ const FiltersMobileModal = () => {
           ))}
 
           <form
-            className="mt-4 flex flex-1 gap-x-2"
+            className="mt-4 flex flex-1 gap-x-2 items-center"
             onSubmit={handleSubmitManualFilterOption}
           >
             <Input
@@ -44,7 +44,7 @@ const FiltersMobileModal = () => {
               error={isValidMinValue}
               value={minValue}
               onChange={(e) => setMinValue(e.target.value)}
-              className="w-24 px-2 bg-white border-[1px] border-gray-400 rounded-md text-sm outline-0 focus:border-blueML focus:border-2"
+              className="w-24 px-2 py-1 bg-white border-[1px] border-gray-400 rounded-md text-sm outline-0 focus:border-blueML focus:border-2"
             />
 
             <span>-</span>
@@ -55,12 +55,12 @@ const FiltersMobileModal = () => {
               error={isValidMaxValue}
               value={maxValue}
               onChange={(e) => setMaxValue(e.target.value)}
-              className="w-24 px-2 bg-white border-[1px] border-gray-400 rounded-md text-sm outline-0 focus:border-blueML focus:border-2"
+              className="w-24 px-2 py-1 bg-white border-[1px] border-gray-400 rounded-md text-sm outline-0 focus:border-blueML focus:border-2"
             />
 
             <button
               type="submit"
-              className="bg-blueML rounded-full flex items-center justify-center disabled:bg-grayML"
+              className="bg-blueML rounded-[100%] flex items-center justify-center disabled:bg-grayML"
               onSubmit={(e) => handleSubmitManualFilterOption(e)}
               disabled={
                 (minValue === "" && maxValue === "") ||

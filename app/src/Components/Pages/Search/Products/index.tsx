@@ -14,9 +14,11 @@ const Products = () => {
       {isLoading ? (
         <h1>Loading...</h1>
       ) : products.length > 0 ? (
-        products.map((product) => (
-          <Product key={product.id} product={product} />
-        ))
+        <div className="flex flex-col col-start-3 col-end-9">
+          {products.map((product) => (
+            <Product key={product.id} product={product} />
+          ))}
+        </div>
       ) : (
         <EmptySearch description="Não há anúncios que correspondam à sua busca" />
       )}

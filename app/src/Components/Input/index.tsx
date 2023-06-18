@@ -9,7 +9,7 @@ const Input = ({ buttonIcon, error, ...rest }: InputProps) => {
   return (
     <div className="relative">
       <div
-        className={`max-w-[120px] absolute top-[110%] px-3 py-2 text-xs font-medium text-white transition-all bg-red-600 rounded-lg shadow-sm ${
+        className={`max-w-[120px] text-center absolute top-[110%] px-3 py-2 text-xs font-medium text-white transition-all bg-red-600 rounded-lg shadow-sm ${
           error ? "animate-fadeImage visible" : "invisible"
         }`}
       >

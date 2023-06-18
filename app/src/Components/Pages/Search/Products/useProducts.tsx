@@ -7,6 +7,7 @@ import urlGenerator from "../../../../utils/urlGenerator";
 
 const useProducts = () => {
   const {
+    setTotalResults,
     setProducts,
     setSearch,
     setSort,
@@ -43,10 +44,17 @@ const useProducts = () => {
 
     (async () => {
       try {
-        const { results, available_sorts, availableFilters, filters, sortApi } =
-          await getProducts(generatedUrl);
+        const {
+          paging,
+          results,
+          available_sorts,
+          availableFilters,
+          filters,
+          sortApi,
+        } = await getProducts(generatedUrl);
 
         setProducts(results);
+        setTotalResults(paging.total);
         setSort(sortApi);
         setAvailableSorts(available_sorts);
         setAvailableFilters(availableFilters);

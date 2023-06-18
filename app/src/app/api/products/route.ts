@@ -12,6 +12,7 @@ export async function GET(request: NextRequest) {
 
   const {
     query,
+    paging,
     results,
     sort: sortApi,
     available_sorts,
@@ -36,6 +37,7 @@ export async function GET(request: NextRequest) {
 
   return NextResponse.json({
     query,
+    paging,
     results,
     sortApi,
     available_sorts: sortSortersById,

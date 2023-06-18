@@ -1,7 +1,7 @@
 "use client";
 
 import SorterMobileModal from "../SorterMobileModal";
-import FiltersMobileModal from "../FiltersMobileModal";
+import FiltersMobileModal from "../FiltersComponents/FiltersMobileModal";
 import useSearchToolbar from "./useSearchToolbar";
 import { useSearchContext } from "../../../../app/Context/searchContext";
 import SearchDetails from "../SearchDetails";
