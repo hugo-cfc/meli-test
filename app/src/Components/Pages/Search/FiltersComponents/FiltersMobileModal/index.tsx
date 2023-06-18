@@ -5,12 +5,13 @@ import SearchBottomSheetLayout from "../../SearchBottomSheetLayout";
 import { ChevronRight } from "lucide-react";
 import Input from "../../../../Input";
 import useFilters from "../../../../../hooks/useFilters";
+import { useSearchContext } from "../../../../../app/Context/searchContext";
 
 const FiltersMobileModal = () => {
+  const { availableFilters } = useSearchContext();
   const {
     handleClickOnFilterOption,
     handleSubmitManualFilterOption,
-    availableFilters,
     minValue,
     maxValue,
     setMinValue,

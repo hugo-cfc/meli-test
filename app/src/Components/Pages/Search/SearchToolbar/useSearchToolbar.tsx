@@ -7,6 +7,12 @@ const useSearchToolbar = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
+  const queryParams = new URLSearchParams(searchParams);
+
+  useEffect(() => {
+    queryParams.delete("modal-type");
+  }, [queryParams]);
+
   const toolbarOptions = [
     {
       type: "sort",
@@ -19,12 +25,6 @@ const useSearchToolbar = () => {
       title: "Filtrar",
     },
   ];
-
-  const queryParams = new URLSearchParams(searchParams);
-
-  useEffect(() => {
-    queryParams.delete("modal-type");
-  }, [queryParams]);
 
   const handleOpenModal = (modalType: string) => {
     queryParams.set("modal-type", modalType);

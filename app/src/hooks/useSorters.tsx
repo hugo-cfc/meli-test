@@ -1,10 +1,10 @@
-import urlGenerator from "../../../../../utils/urlGenerator";
-import { useSearchContext } from "../../../../../app/Context/searchContext";
+import urlGenerator from "../utils/urlGenerator";
+import { useSearchContext } from "../app/Context/searchContext";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const useSorterMobileModal = () => {
+const useSorter = () => {
   const router = useRouter();
-  const { search } = useSearchContext();
+  const { search, setIsSorterDropdownOpen } = useSearchContext();
   const searchParams = useSearchParams();
 
   const queryParams = new URLSearchParams(searchParams);
@@ -20,6 +20,8 @@ const useSorterMobileModal = () => {
       }
     );
 
+    setIsSorterDropdownOpen(false);
+
     queryParams.delete("modal-type");
 
     router.push(generatedUrl);
@@ -28,4 +30,4 @@ const useSorterMobileModal = () => {
   return { handleClickOnSortOption };
 };
 
-export default useSorterMobileModal;
+export default useSorter;

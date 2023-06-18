@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
     query,
     paging,
     results,
-    sortApi,
+    sort: sortApi,
     available_sorts: sortSortersById,
     filters,
     availableFilters: avaiablePriceFilters,

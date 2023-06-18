@@ -1,13 +1,16 @@
 "use client";
 
-import useSorterMobileModal from "./useSorterMobileModal";
 import { useSearchContext } from "../../../../../app/Context/searchContext";
 import BottomSheet from "../../../../BottomSheet";
 import SearchBottomSheetLayout from "../../SearchBottomSheetLayout";
+import useSorter from "../../../../../hooks/useSorters";
+import { useSearchParams } from "next/navigation";
 
 const SorterMobileModal = () => {
-  const { handleClickOnSortOption } = useSorterMobileModal();
-  const { sort, availableSorts } = useSearchContext();
+  const { handleClickOnSortOption } = useSorter();
+  const { availableSorts } = useSearchContext();
+  const searchParams = useSearchParams();
+  const sort = searchParams.get("sort");
 
   return (
     <BottomSheet modalType="sort">
@@ -18,7 +21,7 @@ const SorterMobileModal = () => {
               key={option.id}
               className="border-y-[1px] border-grayML relative"
             >
-              {sort?.id === option.id && (
+              {sort === option.id && (
                 <hr className="absolute left-0.5 top-0 w-1.5 h-full bg-blueML" />
               )}
 
