@@ -5,7 +5,7 @@ import { FormEvent, useState } from "react";
 
 const useFilters = () => {
   const router = useRouter();
-  const { search, availableFilters } = useSearchContext();
+  const { search } = useSearchContext();
   const searchParams = useSearchParams();
   const validationRegex = /^[0-9]+([,.][0-9]+)?$/;
 
@@ -40,6 +40,19 @@ const useFilters = () => {
     router.push(generatedUrl);
   };
 
+  const handleRemoveFilter = () => {
+    const generatedUrl = urlGenerator(
+      { api: false, pathname: search },
+      {
+        sort: currentSort,
+      }
+    );
+
+    queryParams.delete("price");
+
+    router.push(generatedUrl);
+  };
+
   const handleSubmitManualFilterOption = (e: FormEvent) => {
     e.preventDefault();
 
@@ -52,13 +65,13 @@ const useFilters = () => {
   return {
     handleClickOnFilterOption,
     handleSubmitManualFilterOption,
-    availableFilters,
     minValue,
     setMinValue,
     maxValue,
     setMaxValue,
     isValidMinValue,
     isValidMaxValue,
+    handleRemoveFilter,
   };
 };
 
