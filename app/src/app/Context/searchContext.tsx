@@ -13,10 +13,10 @@ import Sort from "../../@types/Sort";
 import Filter from "../../@types/Filter";
 
 interface ContextProps {
+  totalResults: number;
+  setTotalResults: Dispatch<SetStateAction<number>>;
   products: Product[];
   setProducts: Dispatch<SetStateAction<Product[]>>;
-  isSorterModalOpen: boolean;
-  setIsSorterModalOpen: Dispatch<SetStateAction<boolean>>;
   isSorterDropdownOpen: boolean;
   setIsSorterDropdownOpen: Dispatch<SetStateAction<boolean>>;
   search: string;
@@ -25,17 +25,17 @@ interface ContextProps {
   setAvailableSorts: Dispatch<SetStateAction<Sort[]>>;
   sort: Sort | null;
   setSort: Dispatch<SetStateAction<Sort | null>>;
-  availableFilters: Filter[];
-  setAvailableFilters: Dispatch<SetStateAction<Filter[]>>;
-  filter: Filter[] | null;
-  setFilter: Dispatch<SetStateAction<Filter[] | null>>;
+  availableFilters: Filter | null;
+  setAvailableFilters: Dispatch<SetStateAction<Filter | null>>;
+  filters: Filter[] | null;
+  setFilters: Dispatch<SetStateAction<Filter[] | null>>;
 }
 
 const SearchContext = createContext<ContextProps>({
+  totalResults: 0,
+  setTotalResults: () => 0,
   products: [],
   setProducts: () => [],
-  isSorterModalOpen: false,
-  setIsSorterModalOpen: () => false,
   isSorterDropdownOpen: false,
   setIsSorterDropdownOpen: () => false,
   search: "",
@@ -44,10 +44,10 @@ const SearchContext = createContext<ContextProps>({
   setAvailableSorts: () => [],
   sort: null,
   setSort: () => null,
-  availableFilters: [],
+  availableFilters: null,
   setAvailableFilters: () => [],
-  filter: null,
-  setFilter: () => null,
+  filters: null,
+  setFilters: () => null,
 });
 
 export const SearchContextProvider = ({
@@ -55,22 +55,22 @@ export const SearchContextProvider = ({
 }: {
   children: ReactNode;
 }) => {
+  const [totalResults, setTotalResults] = useState(0);
   const [products, setProducts] = useState<[] | Product[]>([]);
-  const [isSorterModalOpen, setIsSorterModalOpen] = useState(false);
   const [isSorterDropdownOpen, setIsSorterDropdownOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<Sort | null>(null);
   const [availableSorts, setAvailableSorts] = useState<Sort[]>([]);
-  const [filter, setFilter] = useState<Filter[] | null>(null);
-  const [availableFilters, setAvailableFilters] = useState<Filter[]>([]);
+  const [filters, setFilters] = useState<Filter[] | null>(null);
+  const [availableFilters, setAvailableFilters] = useState<Filter | null>(null);
 
   return (
     <SearchContext.Provider
       value={{
+        totalResults,
+        setTotalResults,
         products,
         setProducts,
-        isSorterModalOpen,
-        setIsSorterModalOpen,
         isSorterDropdownOpen,
         setIsSorterDropdownOpen,
         search,
@@ -79,8 +79,8 @@ export const SearchContextProvider = ({
         setSort,
         availableSorts,
         setAvailableSorts,
-        filter,
-        setFilter,
+        filters,
+        setFilters,
         availableFilters,
         setAvailableFilters,
       }}

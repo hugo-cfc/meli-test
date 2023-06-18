@@ -1,5 +1,5 @@
 import Image from "next/image";
-import IProduct from "../../../../@types/Product";
+import IProduct from "../../../../../@types/Product";
 import Link from "next/link";
 import { Truck } from "lucide-react";
 
@@ -54,7 +54,7 @@ const Product = ({ product }: ProductProps) => {
               </div>
             </div>
 
-            <p className="text-grayTextML text-sm font-thin tablet:text-base desktop:text-xl">
+            <p className="text-grayTextML text-sm font-thin line-clamp-3 tablet:line-clamp-2 tablet:text-base tablet:pr-24 desktop:text-xl">
               {product.title}
             </p>
 

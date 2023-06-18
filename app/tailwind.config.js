@@ -21,7 +21,7 @@ module.exports = {
         bottomModalOut: "bottomModalOut 0.2s",
       },
       colors: {
-        yellowML: "#FEE600",
+        yellowML: "#fff159",
         grayML: "#EEE",
         grayTextML: "#333",
         blueML: "#3483FA",
@@ -42,5 +42,5 @@ module.exports = {
       }),
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

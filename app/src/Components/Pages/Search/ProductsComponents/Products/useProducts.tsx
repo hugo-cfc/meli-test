@@ -1,18 +1,19 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import getProducts from "../../../../fetchers/getProducts";
-import { useSearchContext } from "../../../../app/Context/searchContext";
+import getProducts from "../../../../../fetchers/getProducts";
+import { useSearchContext } from "../../../../../app/Context/searchContext";
 import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import urlGenerator from "../../../../utils/URLgenerate";
+import urlGenerator from "../../../../../utils/urlGenerator";
 
 const useProducts = () => {
   const {
+    setTotalResults,
     setProducts,
     setSearch,
     setSort,
     setAvailableSorts,
-    setFilter,
     setAvailableFilters,
+    setFilters,
   } = useSearchContext();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -25,10 +26,16 @@ const useProducts = () => {
 
   const formattedPathname = decodeURIComponent(searchPath.replace("/", ""));
 
-  const generatedUrl = urlGenerator(formattedPathname, {
-    sort: paramsSort,
-    price: paramsPrice,
-  }).replace("?", "&");
+  const generatedUrl = urlGenerator(
+    {
+      api: true,
+      pathname: formattedPathname,
+    },
+    {
+      sort: paramsSort,
+      price: paramsPrice,
+    }
+  );
 
   useEffect(() => {
     setIsLoading(true);
@@ -38,28 +45,20 @@ const useProducts = () => {
     (async () => {
       try {
         const {
+          paging,
           results,
           available_sorts,
+          availableFilters,
           filters,
-          available_filters,
           sortApi,
         } = await getProducts(generatedUrl);
 
-        const sortSortersById = [sortApi, ...available_sorts].sort(function (
-          a,
-          b
-        ) {
-          const sorterA = a.id;
-          const sorterB = b.id;
-
-          return sorterB < sorterA ? -1 : sorterB > sorterA ? 1 : 0;
-        });
-
         setProducts(results);
+        setTotalResults(paging.total);
         setSort(sortApi);
-        setAvailableSorts(sortSortersById);
-        setFilter(filters);
-        setAvailableFilters(available_filters);
+        setAvailableSorts(available_sorts);
+        setAvailableFilters(availableFilters);
+        setFilters(filters);
         setIsLoading(false);
       } catch (error) {
         // console.error("Erro ao obter produtos:", error);
@@ -67,7 +66,7 @@ const useProducts = () => {
         setIsLoading(false);
       }
     })();
-  }, [paramsSort]);
+  }, [paramsSort, paramsPrice]);
 
   return {
     isLoading,

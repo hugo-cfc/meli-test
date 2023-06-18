@@ -1,7 +1,8 @@
 import { Metadata } from "next";
-import Products from "../../Components/Pages/Search/Products";
-import SorterMobile from "../../Components/Pages/Search/SorterMobile";
-import Sorter from "../../Components/Pages/Search/Sorter";
+import Products from "../../Components/Pages/Search/ProductsComponents/Products";
+import SearchToolbar from "../../Components/Pages/Search/SearchToolbar";
+import Sorter from "../../Components/Pages/Search/SorterComponents/Sorter";
+import Filters from "../../Components/Pages/Search/FiltersComponents/Filters";
 
 interface Props {
   params: { search: string };
@@ -11,7 +12,7 @@ export function generateMetadata({ params }: Props): Metadata {
   const search = params.search;
 
   return {
-    title: `${search} | Mercado Livre 📦`,
+    title: `${decodeURIComponent(search)} | Mercado Livre 📦`,
     description:
       "Compre produtos com Frete Grátis no mesmo dia no Mercado Livre Brasil. Encontre milhares de marcas e produtos a preços incríveis.",
   };
@@ -20,11 +21,12 @@ export function generateMetadata({ params }: Props): Metadata {
 export default function Search() {
   return (
     <>
-      <SorterMobile />
+      <SearchToolbar />
 
       <Sorter />
 
-      <div className="pb-32 text-grayTextML">
+      <div className="pb-32 text-grayTextML tablet:grid tablet:grid-cols-8 tablet:gap-x-4 notebook:grid-cols-12">
+        <Filters />
         <Products />
       </div>
     </>

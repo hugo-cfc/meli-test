@@ -4,10 +4,13 @@ interface OptionalParams {
 }
 
 export default function urlGenerator(
-  pathname: string,
+  config: {
+    pathname: string;
+    api: boolean;
+  },
   options?: OptionalParams
 ): string {
-  let url = `${pathname}`;
+  let url = config.api ? `?q=${config.pathname}` : `${config.pathname}`;
 
   if (options) {
     const queryParams = new URLSearchParams();
@@ -23,7 +26,7 @@ export default function urlGenerator(
     const queryString = queryParams.toString();
 
     if (queryString) {
-      url += `?${queryString}`;
+      url += config.api ? `&${queryString}` : `?${queryString}`;
     }
   }
 

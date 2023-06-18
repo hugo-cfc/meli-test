@@ -4,9 +4,13 @@ import Sort from "./Sort";
 
 export default interface GetProduct {
   query: string;
+  paging: {
+    total: number;
+  };
   results: Product[];
   sort: Sort;
   available_sorts: Sort[];
-  filters: Filter[] | null;
+  filters: Filter[];
+  availableFilters: Filter;
   available_filters: Filter[];
 }

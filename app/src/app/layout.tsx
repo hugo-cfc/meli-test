@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Mercado Livre Brasil - Frete Grátis no mesmo dia",
   description:
     "Compre produtos com Frete Grátis no mesmo dia no Mercado Livre Brasil. Encontre milhares de marcas e produtos a preços incríveis.",
-  themeColor: "#FEE600",
+  themeColor: "#fff159",
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
         <Providers>
           <Header />
 
-          <main className="m-auto w-screen min-h-screen h-10 tablet:w-[670px] notebook:w-[1000px] desktop:w-[1200px]">
+          <main className="m-auto w-screen min-h-screen h-10 tablet:w-[100%] tablet:px-2 notebook:px-0 notebook:w-[1000px] desktop:w-[1200px]">
             {children}
           </main>
         </Providers>
