@@ -4,15 +4,22 @@ import EmptySearch from "../../../../EmptySearch";
 import Product from "../Product";
 import { useSearchContext } from "../../../../../app/Context/searchContext";
 import useProducts from "./useProducts";
+import ProductSkeleton from "../../Skeletons/ProductSkeleton";
 
 const Products = () => {
   const { products } = useSearchContext();
   const { isLoading } = useProducts();
 
+  const ProductLoadingMock = Array(5)
+    .fill(null)
+    .map(() => <ProductSkeleton key={crypto.randomUUID()} />);
+
   return (
     <>
       {isLoading ? (
-        <h1>Loading...</h1>
+        <div className="flex flex-col col-start-3 col-end-9 mt-16 notebook:col-end-13">
+          {ProductLoadingMock}
+        </div>
       ) : products.length > 0 ? (
         <div className="flex flex-col col-start-3 col-end-9 notebook:col-end-13">
           {products.map((product) => (
