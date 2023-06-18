@@ -26,7 +26,9 @@ const Filters = () => {
         totalResults == 0 ? "tablet:hidden" : "tablet:flex"
       }`}
     >
-      <h1 className="text-grayTextML text-2xl">{search}</h1>
+      <h1 className="text-grayTextML text-2xl line-clamp-3 tablet:line-clamp-2">
+        {search}
+      </h1>
 
       <legend className="text-grayTextML text-xs font-thin mb-4 desktop:text-sm">
         {totalResults} {totalResults === 1 ? "resultado" : "resultados"}

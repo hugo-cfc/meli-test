@@ -48,7 +48,7 @@ const FiltersMobileModal = () => {
               className="w-24 px-2 py-1 bg-white border-[1px] border-gray-400 rounded-md text-sm outline-0 focus:border-blueML focus:border-2"
             />
 
-            <span>-</span>
+            <span className="text-grayTextML">-</span>
 
             <Input
               type="text"
