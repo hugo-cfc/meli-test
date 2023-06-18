@@ -6,16 +6,14 @@ import { useSearchContext } from "../../../../../app/Context/searchContext";
 import useProducts from "./useProducts";
 import ProductSkeleton from "../../Skeletons/ProductSkeleton";
 import FiltersSkeletons from "../../Skeletons/FiltersSkeleton";
-import { useId } from "react";
 
 const Products = () => {
   const { products } = useSearchContext();
   const { isLoading } = useProducts();
-  const skeletonId = useId();
 
   const ProductLoadingMock = Array(5)
     .fill(null)
-    .map(() => <ProductSkeleton key={skeletonId} />);
+    .map(() => <ProductSkeleton key={crypto.randomUUID()} />);
 
   return (
     <>
