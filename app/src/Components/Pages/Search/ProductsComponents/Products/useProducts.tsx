@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import getProducts from "../../../../fetchers/getProducts";
-import { useSearchContext } from "../../../../app/Context/searchContext";
+import getProducts from "../../../../../fetchers/getProducts";
+import { useSearchContext } from "../../../../../app/Context/searchContext";
 import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import urlGenerator from "../../../../utils/urlGenerator";
+import urlGenerator from "../../../../../utils/urlGenerator";
 
 const useProducts = () => {
   const {

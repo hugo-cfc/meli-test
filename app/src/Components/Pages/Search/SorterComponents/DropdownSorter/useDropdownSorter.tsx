@@ -1,5 +1,5 @@
-import urlGenerator from "../../../../utils/urlGenerator";
-import { useSearchContext } from "../../../../app/Context/searchContext";
+import urlGenerator from "../../../../../utils/urlGenerator";
+import { useSearchContext } from "../../../../../app/Context/searchContext";
 import { useRouter } from "next/navigation";
 
 const useDropdownSorter = () => {

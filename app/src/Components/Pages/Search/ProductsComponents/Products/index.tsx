@@ -1,8 +1,8 @@
 "use client";
 
-import EmptySearch from "../../../../Components/EmptySearch";
+import EmptySearch from "../../../../EmptySearch";
 import Product from "../Product";
-import { useSearchContext } from "../../../../app/Context/searchContext";
+import { useSearchContext } from "../../../../../app/Context/searchContext";
 import useProducts from "./useProducts";
 
 const Products = () => {

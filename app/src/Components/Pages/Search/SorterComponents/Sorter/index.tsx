@@ -2,7 +2,7 @@
 
 import { ChevronDown } from "lucide-react";
 import DropdownSorter from "../DropdownSorter";
-import { useSearchContext } from "../../../../app/Context/searchContext";
+import { useSearchContext } from "../../../../../app/Context/searchContext";
 
 const Sorter = () => {
   const { isSorterDropdownOpen, setIsSorterDropdownOpen, sort } =

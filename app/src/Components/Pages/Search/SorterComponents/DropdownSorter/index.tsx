@@ -1,7 +1,7 @@
 "use client";
 
 import useDropdownSorter from "./useDropdownSorter";
-import { useSearchContext } from "../../../../app/Context/searchContext";
+import { useSearchContext } from "../../../../../app/Context/searchContext";
 import { useSearchParams } from "next/navigation";
 
 const DropdownSorter = () => {

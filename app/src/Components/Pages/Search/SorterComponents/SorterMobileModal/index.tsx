@@ -1,9 +1,9 @@
 "use client";
 
 import useSorterMobileModal from "./useSorterMobileModal";
-import { useSearchContext } from "../../../../app/Context/searchContext";
-import BottomSheet from "../../../BottomSheet";
-import SearchBottomSheetLayout from "../SearchBottomSheetLayout";
+import { useSearchContext } from "../../../../../app/Context/searchContext";
+import BottomSheet from "../../../../BottomSheet";
+import SearchBottomSheetLayout from "../../SearchBottomSheetLayout";
 
 const SorterMobileModal = () => {
   const { handleClickOnSortOption } = useSorterMobileModal();
