@@ -25,8 +25,8 @@ interface ContextProps {
   setSort: Dispatch<SetStateAction<Sort | null>>;
   availableFilters: Filter | null;
   setAvailableFilters: Dispatch<SetStateAction<Filter | null>>;
-  filter: Filter | null;
-  setFilter: Dispatch<SetStateAction<Filter | null>>;
+  filters: Filter[] | null;
+  setFilters: Dispatch<SetStateAction<Filter[] | null>>;
 }
 
 const SearchContext = createContext<ContextProps>({
@@ -42,8 +42,8 @@ const SearchContext = createContext<ContextProps>({
   setSort: () => null,
   availableFilters: null,
   setAvailableFilters: () => [],
-  filter: null,
-  setFilter: () => null,
+  filters: null,
+  setFilters: () => null,
 });
 
 export const SearchContextProvider = ({
@@ -56,7 +56,7 @@ export const SearchContextProvider = ({
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<Sort | null>(null);
   const [availableSorts, setAvailableSorts] = useState<Sort[]>([]);
-  const [filter, setFilter] = useState<Filter | null>(null);
+  const [filters, setFilters] = useState<Filter[] | null>(null);
   const [availableFilters, setAvailableFilters] = useState<Filter | null>(null);
 
   return (
@@ -72,8 +72,8 @@ export const SearchContextProvider = ({
         setSort,
         availableSorts,
         setAvailableSorts,
-        filter,
-        setFilter,
+        filters,
+        setFilters,
         availableFilters,
         setAvailableFilters,
       }}

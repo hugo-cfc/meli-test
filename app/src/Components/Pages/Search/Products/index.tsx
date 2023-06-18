@@ -18,7 +18,7 @@ const Products = () => {
           <Product key={product.id} product={product} />
         ))
       ) : (
-        <EmptySearch description="Nenhum resultado encontrado" />
+        <EmptySearch description="Não há anúncios que correspondam à sua busca" />
       )}
     </>
   );

@@ -11,7 +11,7 @@ const Header = () => {
   const { handleSubmit, search, setSearch, handleClickLogo } = useHeader();
 
   return (
-    <header className="bg-yellowML h-12 px-2 py-2">
+    <header className="bg-yellowML h-12 px-2 py-2 border-b-[1px] border-gray-300">
       <div className="m-auto flex gap-x-4 items-center tablet:grid tablet:grid-cols-8 tablet:w-[670px] notebook:grid-cols-12 notebook:w-[1000px] desktop:w-[1200px]">
         <Link href="/" onClick={handleClickLogo}>
           <Image

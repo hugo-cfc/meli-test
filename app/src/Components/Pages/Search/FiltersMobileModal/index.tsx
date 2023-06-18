@@ -15,7 +15,8 @@ const FiltersMobileModal = () => {
     maxValue,
     setMinValue,
     setMaxValue,
-    validationRegex,
+    isValidMinValue,
+    isValidMaxValue,
   } = useFiltersMobileModal();
 
   return (
@@ -40,24 +41,18 @@ const FiltersMobileModal = () => {
             <Input
               type="text"
               placeholder="Mínimo"
-              error={
-                !validationRegex.test(minValue) && minValue
-                  ? "Formato errado"
-                  : ""
-              }
+              error={isValidMinValue}
               value={minValue}
               onChange={(e) => setMinValue(e.target.value)}
               className="w-24 px-2 bg-white border-[1px] border-gray-400 rounded-md text-sm outline-0 focus:border-blueML focus:border-2"
             />
+
             <span>-</span>
+
             <Input
               type="text"
               placeholder="Máximo"
-              error={
-                !validationRegex.test(maxValue) && maxValue
-                  ? "Formato errado"
-                  : ""
-              }
+              error={isValidMaxValue}
               value={maxValue}
               onChange={(e) => setMaxValue(e.target.value)}
               className="w-24 px-2 bg-white border-[1px] border-gray-400 rounded-md text-sm outline-0 focus:border-blueML focus:border-2"
@@ -67,7 +62,11 @@ const FiltersMobileModal = () => {
               type="submit"
               className="bg-blueML rounded-full flex items-center justify-center disabled:bg-grayML"
               onSubmit={(e) => handleSubmitManualFilterOption(e)}
-              disabled={minValue === "" && maxValue === ""}
+              disabled={
+                (minValue === "" && maxValue === "") ||
+                isValidMinValue !== "" ||
+                isValidMaxValue !== ""
+              }
             >
               <ChevronRight className="w-6 text-white" />
             </button>

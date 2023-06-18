@@ -12,6 +12,7 @@ const useProducts = () => {
     setSort,
     setAvailableSorts,
     setAvailableFilters,
+    setFilters,
   } = useSearchContext();
 
   const [isLoading, setIsLoading] = useState(true);
@@ -42,13 +43,14 @@ const useProducts = () => {
 
     (async () => {
       try {
-        const { results, available_sorts, availableFilters, sortApi } =
+        const { results, available_sorts, availableFilters, filters, sortApi } =
           await getProducts(generatedUrl);
 
         setProducts(results);
         setSort(sortApi);
         setAvailableSorts(available_sorts);
         setAvailableFilters(availableFilters);
+        setFilters(filters);
         setIsLoading(false);
       } catch (error) {
         // console.error("Erro ao obter produtos:", error);
