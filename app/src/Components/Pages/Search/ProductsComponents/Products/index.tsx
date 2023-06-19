@@ -3,9 +3,8 @@
 import EmptySearch from "../../../../EmptySearch";
 import Product from "../Product";
 import { useSearchContext } from "../../../../../app/Context/searchContext";
-import useProducts from "./useProducts";
-import ProductSkeleton from "../../Skeletons/ProductSkeleton";
-import FiltersSkeletons from "../../Skeletons/FiltersSkeleton";
+import useProducts from "../../../../../hooks/useProducts";
+import ProductSkeleton from "../Product/skeleton";
 
 const Products = () => {
   const { products } = useSearchContext();
@@ -18,14 +17,8 @@ const Products = () => {
   return (
     <>
       {isLoading ? (
-        <div className="col-start-1 mt-16 tablet:col-end-9 notebook:col-end-13 tablet:grid tablet:grid-cols-8 tablet:gap-x-4 notebook:grid-cols-12">
-          <div className="hidden tablet:flex flex-col col-start-1 col-end-3">
-            <FiltersSkeletons />
-          </div>
-
-          <div className="flex flex-col col-start-3 col-end-9 notebook:col-end-13">
-            {ProductLoadingMock}
-          </div>
+        <div className="flex flex-col col-start-3 col-end-9 notebook:col-end-13">
+          {ProductLoadingMock}
         </div>
       ) : products.length > 0 ? (
         <>
