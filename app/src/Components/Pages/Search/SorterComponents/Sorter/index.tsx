@@ -8,12 +8,13 @@ import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
 import { RootState } from "../../../../../app/redux/store";
 
 const Sorter = () => {
-  const { isSorterDropdownOpen, setIsSorterDropdownOpen, sort } =
-    useSearchContext();
+  const { isSorterDropdownOpen, setIsSorterDropdownOpen } = useSearchContext();
   const { isLoading } = useProducts();
   const totalResults = useAppSelector(
     (state: RootState) => state.products.totalResults
   );
+
+  const sort = useAppSelector((state: RootState) => state.products.sort);
 
   return (
     <>

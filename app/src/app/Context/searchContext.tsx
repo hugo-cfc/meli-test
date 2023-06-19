@@ -8,21 +8,13 @@ import {
   useState,
   ReactNode,
 } from "react";
-import Product from "../../@types/Product";
-import Sort from "../../@types/Sort";
 import Filter from "../../@types/Filter";
 
 interface ContextProps {
-  products: Product[];
-  setProducts: Dispatch<SetStateAction<Product[]>>;
   isSorterDropdownOpen: boolean;
   setIsSorterDropdownOpen: Dispatch<SetStateAction<boolean>>;
   search: string;
   setSearch: Dispatch<SetStateAction<string>>;
-  availableSorts: Sort[];
-  setAvailableSorts: Dispatch<SetStateAction<Sort[]>>;
-  sort: Sort | null;
-  setSort: Dispatch<SetStateAction<Sort | null>>;
   availableFilters: Filter | null;
   setAvailableFilters: Dispatch<SetStateAction<Filter | null>>;
   filters: Filter[] | null;
@@ -30,16 +22,10 @@ interface ContextProps {
 }
 
 const SearchContext = createContext<ContextProps>({
-  products: [],
-  setProducts: () => [],
   isSorterDropdownOpen: false,
   setIsSorterDropdownOpen: () => false,
   search: "",
   setSearch: () => "",
-  availableSorts: [],
-  setAvailableSorts: () => [],
-  sort: null,
-  setSort: () => null,
   availableFilters: null,
   setAvailableFilters: () => [],
   filters: null,
@@ -51,27 +37,18 @@ export const SearchContextProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [products, setProducts] = useState<[] | Product[]>([]);
   const [isSorterDropdownOpen, setIsSorterDropdownOpen] = useState(false);
   const [search, setSearch] = useState("");
-  const [sort, setSort] = useState<Sort | null>(null);
-  const [availableSorts, setAvailableSorts] = useState<Sort[]>([]);
   const [filters, setFilters] = useState<Filter[] | null>(null);
   const [availableFilters, setAvailableFilters] = useState<Filter | null>(null);
 
   return (
     <SearchContext.Provider
       value={{
-        products,
-        setProducts,
         isSorterDropdownOpen,
         setIsSorterDropdownOpen,
         search,
         setSearch,
-        sort,
-        setSort,
-        availableSorts,
-        setAvailableSorts,
         filters,
         setFilters,
         availableFilters,

@@ -2,13 +2,16 @@
 
 import EmptySearch from "../../../../EmptySearch";
 import Product from "../Product";
-import { useSearchContext } from "../../../../../app/Context/searchContext";
 import useProducts from "../../../../../hooks/useProducts";
 import ProductSkeleton from "../Product/skeleton";
+import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
+import { RootState } from "../../../../../app/redux/store";
 
 const Products = () => {
-  const { products } = useSearchContext();
   const { isLoading } = useProducts();
+  const products = useAppSelector(
+    (state: RootState) => state.products.products
+  );
 
   const ProductLoadingMock = Array(5)
     .fill(null)

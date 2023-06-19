@@ -4,18 +4,16 @@ import { useSearchContext } from "../app/Context/searchContext";
 import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import urlGenerator from "../utils/urlGenerator";
-import { setTotalResults } from "../app/redux/Features/productsSlice";
+import {
+  setTotalResults,
+  setProducts,
+  setSort,
+  setAvailableSorts,
+} from "../app/redux/Features/productsSlice";
 import { useAppDispatch } from "../hooks/reduxHooks/reduxHooks";
 
 const useProducts = () => {
-  const {
-    setProducts,
-    setSearch,
-    setSort,
-    setAvailableSorts,
-    setAvailableFilters,
-    setFilters,
-  } = useSearchContext();
+  const { setSearch, setAvailableFilters, setFilters } = useSearchContext();
   const dispatch = useAppDispatch();
   const searchPath = usePathname();
   const searchParams = useSearchParams();
@@ -54,11 +52,10 @@ const useProducts = () => {
           sortApi,
         } = await getProducts(generatedUrl);
 
-        setProducts(results);
-        setTotalResults(paging.total);
+        dispatch(setProducts(results));
         dispatch(setTotalResults(paging.total));
-        setSort(sortApi);
-        setAvailableSorts(available_sorts);
+        dispatch(setSort(sortApi));
+        dispatch(setAvailableSorts(available_sorts));
         setAvailableFilters(availableFilters);
         setFilters(filters);
         setIsLoading(false);

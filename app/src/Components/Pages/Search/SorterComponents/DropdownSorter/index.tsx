@@ -3,12 +3,18 @@
 import { useSearchContext } from "../../../../../app/Context/searchContext";
 import { useSearchParams } from "next/navigation";
 import useSorter from "../../../../../hooks/useSorters";
+import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
+import { RootState } from "../../../../../app/redux/store";
 
 const DropdownSorter = () => {
   const { handleClickOnSortOption } = useSorter();
-  const { isSorterDropdownOpen, setIsSorterDropdownOpen, availableSorts } =
-    useSearchContext();
+  const { isSorterDropdownOpen, setIsSorterDropdownOpen } = useSearchContext();
   const searchParams = useSearchParams();
+
+  const availableSorts = useAppSelector(
+    (state: RootState) => state.products.availableSorts
+  );
+
   const sort = searchParams.get("sort");
 
   return (
@@ -27,7 +33,7 @@ const DropdownSorter = () => {
         }`}
       >
         <ul>
-          {availableSorts.sort().map((option) => (
+          {availableSorts.map((option) => (
             <li
               key={option.id}
               className="border-y-[1px] border-grayML relative transition-all hover:bg-slate-200"
