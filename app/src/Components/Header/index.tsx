@@ -23,16 +23,21 @@ const Header = () => {
         </Link>
 
         <form
-          className="flex-1 tablet:col-start-2 tablet:col-end-9 notebook:col-start-2 notebook:col-end-13"
+          className="flex flex-1 items-center tablet:col-start-2 tablet:col-end-9 notebook:col-start-2 notebook:col-end-13"
           onSubmit={handleSubmit}
         >
           <Input
-            className="px-2 py-1 text-xs placeholder-gray-300 placeholder:font-normal tablet:text-sm"
+            className="px-2 py-2 text-xs placeholder-gray-300 placeholder:font-normal tablet:py-1.5 tablet:text-sm"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            buttonIcon={<Search className="w-4" />}
             placeholder="Buscar produtos, marcas e muito mais"
           />
+          <button
+            type="submit"
+            className="bg-grayML px-2 py-1 transition-all hover:bg-gray-100"
+          >
+            <Search className="w-4" />
+          </button>
         </form>
       </div>
     </header>

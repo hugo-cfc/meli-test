@@ -13,7 +13,7 @@ import {
 } from "../app/redux/Features/productsSlice";
 import getProducts from "../fetchers/getProducts";
 import { useAppDispatch } from "../hooks/reduxHooks/reduxHooks";
-import urlGenerator from "../utils/urlGenerator";
+import urlGenerator from "../functions/urlGenerator";
 import { useSnackbar } from "notistack";
 
 const useProducts = () => {

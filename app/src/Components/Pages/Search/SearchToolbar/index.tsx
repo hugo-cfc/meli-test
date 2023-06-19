@@ -1,12 +1,12 @@
 "use client";
 
-import SorterMobileModal from "../SorterComponents/SorterMobileModal";
-import FiltersMobileModal from "../FiltersComponents/FiltersMobileModal";
-import useSearchToolbar from "./useSearchToolbar";
-import SearchDetails from "../SearchDetails";
-import useProducts from "../../../../hooks/useProducts";
-import { useAppSelector } from "../../../../hooks/reduxHooks/reduxHooks";
 import { RootState } from "../../../../app/redux/store";
+import { useAppSelector } from "../../../../hooks/reduxHooks/reduxHooks";
+import useProducts from "../../../../hooks/useProducts";
+import FiltersMobileModal from "../FiltersComponents/FiltersMobileModal";
+import SearchDetails from "../SearchDetails";
+import SorterMobileModal from "../SorterComponents/SorterMobileModal";
+import useSearchToolbar from "./useSearchToolbar";
 
 const SearchToolbar = () => {
   const { handleOpenModal, pathname, toolbarOptions } = useSearchToolbar();

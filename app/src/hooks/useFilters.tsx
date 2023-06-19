@@ -2,23 +2,25 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useState } from "react";
 
 import { RootState } from "../app/redux/store";
-import urlGenerator from "../utils/urlGenerator";
+import urlGenerator from "../functions/urlGenerator";
 import { useAppSelector } from "./reduxHooks/reduxHooks";
 
 const useFilters = () => {
   const router = useRouter();
   const search = useAppSelector((state: RootState) => state.products.search);
   const searchParams = useSearchParams();
-  const validationRegex = /^[0-9]+([,.][0-9]+)?$/;
+  const validationRegex = /^[0-9]*([,.][0-9]+)?$/;
 
   const [minValue, setMinValue] = useState<string>("");
   const [maxValue, setMaxValue] = useState<string>("");
 
-  const isValidMinValue =
-    !validationRegex.test(minValue) && minValue ? "Formato errado" : "";
+  const isValidValue = (value: string) =>
+    !validationRegex.test(value) && value ? "Formato errado" : "";
 
-  const isValidMaxValue =
-    !validationRegex.test(maxValue) && maxValue ? "Formato errado" : "";
+  const isNotAvailableToSubmit =
+    (minValue === "" && maxValue === "") ||
+    isValidValue(minValue) !== "" ||
+    isValidValue(maxValue) !== "";
 
   const manualFilterId = `${minValue ? minValue.replace(",", ".") : "*"}-${
     maxValue ? maxValue.replace(",", ".") : "*"
@@ -71,9 +73,9 @@ const useFilters = () => {
     setMinValue,
     maxValue,
     setMaxValue,
-    isValidMinValue,
-    isValidMaxValue,
     handleRemoveFilter,
+    isValidValue,
+    isNotAvailableToSubmit,
   };
 };
 

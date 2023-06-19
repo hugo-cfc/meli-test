@@ -1,14 +1,15 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import DropdownSorter from "../DropdownSorter";
-import useProducts from "../../../../../hooks/useProducts";
+
+import { setIsSorterDropdownOpen } from "../../../../../app/redux/Features/productsSlice";
+import { RootState } from "../../../../../app/redux/store";
 import {
   useAppDispatch,
   useAppSelector,
 } from "../../../../../hooks/reduxHooks/reduxHooks";
-import { RootState } from "../../../../../app/redux/store";
-import { setIsSorterDropdownOpen } from "../../../../../app/redux/Features/productsSlice";
+import useProducts from "../../../../../hooks/useProducts";
+import DropdownSorter from "../DropdownSorter";
 
 const Sorter = () => {
   const dispatch = useAppDispatch();

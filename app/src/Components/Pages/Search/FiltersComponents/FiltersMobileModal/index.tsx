@@ -19,8 +19,8 @@ const FiltersMobileModal = () => {
     maxValue,
     setMinValue,
     setMaxValue,
-    isValidMinValue,
-    isValidMaxValue,
+    isValidValue,
+    isNotAvailableToSubmit,
   } = useFilters();
 
   return (
@@ -45,7 +45,7 @@ const FiltersMobileModal = () => {
             <Input
               type="text"
               placeholder="Mínimo"
-              error={isValidMinValue}
+              error={isValidValue(minValue)}
               value={minValue}
               onChange={(e) => setMinValue(e.target.value)}
               className="w-24 rounded-md border-[1px] border-gray-400 bg-white px-2 py-1 text-sm outline-0 focus:border-2 focus:border-blueML"
@@ -56,7 +56,7 @@ const FiltersMobileModal = () => {
             <Input
               type="text"
               placeholder="Máximo"
-              error={isValidMaxValue}
+              error={isValidValue(maxValue)}
               value={maxValue}
               onChange={(e) => setMaxValue(e.target.value)}
               className="w-24 rounded-md border-[1px] border-gray-400 bg-white px-2 py-1 text-sm outline-0 focus:border-2 focus:border-blueML"
@@ -66,11 +66,7 @@ const FiltersMobileModal = () => {
               type="submit"
               className="flex items-center justify-center rounded-[100%] bg-blueML disabled:bg-grayML"
               onSubmit={(e) => handleSubmitManualFilterOption(e)}
-              disabled={
-                (minValue === "" && maxValue === "") ||
-                isValidMinValue !== "" ||
-                isValidMaxValue !== ""
-              }
+              disabled={isNotAvailableToSubmit}
             >
               <ChevronRight className="w-6 text-white" />
             </button>
