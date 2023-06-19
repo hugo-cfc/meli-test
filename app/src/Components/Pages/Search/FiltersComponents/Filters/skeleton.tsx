@@ -1,26 +1,26 @@
 const FiltersSkeletons = () => (
-  <div className="animate-pulse flex flex-col gap-y-2">
-    <div className="flex flex-col gap-y-2 mb-3">
-      <div className="bg-gray-300 h-10 w-full" />
-      <div className="bg-gray-300 h-4 w-14" />
+  <div className="flex animate-pulse flex-col gap-y-2">
+    <div className="mb-3 flex flex-col gap-y-2">
+      <div className="h-10 w-full bg-gray-300" />
+      <div className="h-4 w-14 bg-gray-300" />
     </div>
 
-    <div className="bg-gray-300 mb-1 w-14 h-5" />
+    <div className="mb-1 h-5 w-14 bg-gray-300" />
 
-    <div className="bg-gray-300 w-28 h-5" />
+    <div className="h-5 w-28 bg-gray-300" />
 
-    <div className="bg-gray-300 w-36 h-5" />
+    <div className="h-5 w-36 bg-gray-300" />
 
-    <div className="bg-gray-300 w-32 h-5" />
+    <div className="h-5 w-32 bg-gray-300" />
 
-    <div className="mt-2 flex gap-x-1 items-center">
-      <div className="w-16 h-5 bg-gray-300 border-[1px] rounded-md" />
+    <div className="mt-2 flex items-center gap-x-1">
+      <div className="h-5 w-16 rounded-md border-[1px] bg-gray-300" />
 
       <span className="text-grayTextML">-</span>
 
-      <div className="w-16 h-5 bg-gray-300 border-[1px] rounded-md" />
+      <div className="h-5 w-16 rounded-md border-[1px] bg-gray-300" />
 
-      <div className="w-5 h-5 rounded-[100%] bg-gray-400" />
+      <div className="h-5 w-5 rounded-[100%] bg-gray-400" />
     </div>
   </div>
 );

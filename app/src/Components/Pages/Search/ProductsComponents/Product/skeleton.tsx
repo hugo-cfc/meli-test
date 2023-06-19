@@ -1,13 +1,13 @@
 const ProductSkeleton = () => (
-  <div className="animate-pulse bg-white py-2 gap-x-2 px-2 flex items-center relative">
-    <div className="bg-gray-300 w-[160px] h-[160px]" />
+  <div className="relative flex animate-pulse items-center gap-x-2 bg-white px-2 py-2">
+    <div className="h-[160px] w-[160px] bg-gray-300" />
 
-    <div className="flex flex-col gap-y-2 flex-1">
-      <div className="bg-gray-400 w-24 h-6" />
+    <div className="flex flex-1 flex-col gap-y-2">
+      <div className="h-6 w-24 bg-gray-400" />
 
-      <div className="w-[150px] h-12 bg-gray-400 tablet:w-[240px]" />
+      <div className="h-12 w-[150px] bg-gray-400 tablet:w-[240px]" />
 
-      <div className="w-[120px] h-6 bg-gray-400" />
+      <div className="h-6 w-[120px] bg-gray-400" />
     </div>
   </div>
 );

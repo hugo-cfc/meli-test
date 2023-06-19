@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import getProducts from "../fetchers/getProducts";
-import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import urlGenerator from "../utils/urlGenerator";
+import { useEffect, useState } from "react";
+
 import {
   setTotalResults,
   setProducts,
@@ -12,7 +11,9 @@ import {
   setFilters,
   setSearch,
 } from "../app/redux/Features/productsSlice";
+import getProducts from "../fetchers/getProducts";
 import { useAppDispatch } from "../hooks/reduxHooks/reduxHooks";
+import urlGenerator from "../utils/urlGenerator";
 
 const useProducts = () => {
   const dispatch = useAppDispatch();

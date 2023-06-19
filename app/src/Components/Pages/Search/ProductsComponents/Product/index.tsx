@@ -22,11 +22,11 @@ const Product = ({ product }: ProductProps) => {
 
   return (
     <Link href={product.permalink}>
-      <div className="bg-white py-2 px-2 flex items-center relative">
-        <div className="flex items-center gap-x-2 shrink-0 flex-1 tablet:gap-x-4">
-          <div className="bg-white min-w-[150px] max-h-[160px] tablet:max-w-[160px]">
+      <div className="relative flex items-center bg-white px-2 py-2">
+        <div className="flex flex-1 shrink-0 items-center gap-x-2 tablet:gap-x-4">
+          <div className="max-h-[160px] min-w-[150px] bg-white tablet:max-w-[160px]">
             <Image
-              className="rounded-lg w-40 object-contain aspect-square tablet:w-40"
+              className="aspect-square w-40 rounded-lg object-contain tablet:w-40"
               src={product.thumbnail}
               alt={product.title}
               width={160}
@@ -36,32 +36,32 @@ const Product = ({ product }: ProductProps) => {
             />
           </div>
 
-          <div className="flex flex-col gap-y-2 flex-1">
+          <div className="flex flex-1 flex-col gap-y-2">
             <div className="flex items-center">
-              <div className="w-full flex justify-between tablet:pr-12">
+              <div className="flex w-full justify-between tablet:pr-12">
                 <div className="flex items-center gap-x-2">
-                  <h1 className="text-grayTextML font-light text-xl desktop:text-2xl">
+                  <h1 className="text-xl font-light text-grayTextML desktop:text-2xl">
                     {formattedPrice}
                   </h1>
                   {product.shipping.free_shipping && (
-                    <div className="bg-green-500 w-4 h-4 rounded-full flex items-center justify-center">
+                    <div className="flex h-4 w-4 items-center justify-center rounded-full bg-green-500">
                       <Truck className="w-2" />
                     </div>
                   )}
                 </div>
 
-                <p className="text-gray-400 text-[10px] hidden tablet:flex desktop:text-xs">
+                <p className="hidden text-[10px] text-gray-400 tablet:flex desktop:text-xs">
                   {product.address.state_name}
                 </p>
               </div>
             </div>
 
-            <p className="text-grayTextML text-sm font-thin line-clamp-3 tablet:line-clamp-2 tablet:text-base tablet:pr-24 desktop:text-xl">
+            <p className="text-sm font-thin text-grayTextML line-clamp-3 tablet:pr-24 tablet:text-base tablet:line-clamp-2 desktop:text-xl">
               {product.title}
             </p>
 
             {product.installments && (
-              <span className="text-green-500 font-light text-xs flex gap-x-[2px] desktop:text-sm">
+              <span className="flex gap-x-[2px] text-xs font-light text-green-500 desktop:text-sm">
                 <div className="text-grayTextML">
                   <span>em</span>
                 </div>{" "}
@@ -76,7 +76,7 @@ const Product = ({ product }: ProductProps) => {
           </div>
         </div>
 
-        <div className="bg-gray-200 w-[95%] h-[1px] absolute bottom-0 translate-x-1/2 right-[50%]" />
+        <div className="absolute bottom-0 right-[50%] h-[1px] w-[95%] translate-x-1/2 bg-gray-200" />
       </div>
     </Link>
   );

@@ -24,7 +24,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
     project: ["./tsconfig.json"],
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "eslint-plugin-import-helpers"],
   settings: {
     "import/resolver": {
       node: {
@@ -51,6 +51,7 @@ module.exports = {
         indentStyle: "space",
         useTabs: false,
         trailingComma: "es5",
+        plugins: ["prettier-plugin-tailwindcss"]
       },
     ],
     "@typescript-eslint/no-explicit-any": "warn",
@@ -79,5 +80,13 @@ module.exports = {
     "react-hooks/exhaustive-deps": "off",
     "object-shorthand": "error",
     "no-console": "warn",
+    "import-helpers/order-imports": [
+      "warn",
+      {
+        newlinesBetween: "always", // new line between groups
+        groups: ["module", "/^@shared/", ["parent", "sibling", "index"]],
+        alphabetize: { order: "asc", ignoreCase: true },
+      },
+    ],
   },
 };

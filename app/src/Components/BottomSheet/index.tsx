@@ -13,10 +13,10 @@ const BottomSheet = ({ modalType, children }: BottomSheetProps) => {
 
   return (
     <div
-      className={`fixed z-50 left-0 w-screen h-screen bg-white transition-all ${
+      className={`fixed left-0 z-50 h-screen w-screen bg-white transition-all ${
         currentModalType === modalType
-          ? "animate-bottomModal top-0 "
-          : "animate-bottomModalOut top-[101%]"
+          ? "top-0 animate-bottomModal "
+          : "top-[101%] animate-bottomModalOut"
       } tablet:hidden`}
     >
       {children}
