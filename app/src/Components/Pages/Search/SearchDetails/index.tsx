@@ -8,7 +8,7 @@ interface SearchDetailsProps {
 
 const SearchDetails = ({ search, filters }: SearchDetailsProps) => {
   return (
-    <div className="flex flex-col gap-y-2 mt-4 px-4 tablet:hidden">
+    <div className="mt-4 flex flex-col gap-y-2 px-4 tablet:hidden">
       <h1 className="text-grayTextML">{decodeURIComponent(search)}</h1>
 
       {filters?.map((filter) => {

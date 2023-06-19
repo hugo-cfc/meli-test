@@ -27,11 +27,11 @@ const SearchToolbar = () => {
         <div
           className={`mb-4 ${totalResults === 0 ? "hidden" : "tablet:flex"}`}
         >
-          <div className="bg-white w-screen h-12 tablet:hidden flex">
+          <div className="flex h-12 w-screen bg-white tablet:hidden">
             {toolbarOptions.map((item) => (
               <button
                 key={item.type}
-                className={`flex-1 flex items-center justify-center gap-x-2 text-blueML ${
+                className={`flex flex-1 items-center justify-center gap-x-2 text-blueML ${
                   !availableFilters && item.type === "filter" && "hidden"
                 }`}
                 onClick={() => handleOpenModal(item.type)}

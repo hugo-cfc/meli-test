@@ -12,7 +12,7 @@ const FilterBadge = ({ title }: FilterBadgeProps) => {
 
   return (
     <button
-      className="bg-gray-300 w-fit px-2 py-1 flex gap-x-1 items-center rounded-3xl text-grayTextML font-light text-sm tablet:bg-white tablet:text-xs tablet:rounded-none tablet:py-0"
+      className="flex w-fit items-center gap-x-1 rounded-3xl bg-gray-300 px-2 py-1 text-sm font-light text-grayTextML tablet:rounded-none tablet:bg-white tablet:py-0 tablet:text-xs"
       onClick={() => handleRemoveFilter()}
     >
       {title}

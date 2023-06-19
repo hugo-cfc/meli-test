@@ -34,15 +34,15 @@ const Filters = () => {
     <>
       {!isLoading ? (
         <div
-          className={`hidden flex-col col-start-1 col-end-3 ${
+          className={`col-start-1 col-end-3 hidden flex-col ${
             totalResults == 0 ? "tablet:hidden" : "tablet:flex"
           }`}
         >
-          <h1 className="text-grayTextML text-2xl line-clamp-3 tablet:line-clamp-2">
+          <h1 className="text-2xl text-grayTextML line-clamp-3 tablet:line-clamp-2">
             {search}
           </h1>
 
-          <legend className="text-grayTextML text-xs font-thin mb-4 desktop:text-sm">
+          <legend className="mb-4 text-xs font-thin text-grayTextML desktop:text-sm">
             {totalResults} {totalResults === 1 ? "resultado" : "resultados"}
           </legend>
 
@@ -54,17 +54,17 @@ const Filters = () => {
             );
           })}
 
-          <div className="flex flex-col mt-4">
+          <div className="mt-4 flex flex-col">
             <h1 className="mb-2">Preço</h1>
             <ul>
               {availableFilters?.values.map((filter) => (
                 <li
                   key={filter.id}
-                  className="text-grayTextML text-xs font-light antialiased text-start flex items-center gap-x-2 mb-1 desktop:text-sm w-fit cursor-pointer"
+                  className="mb-1 flex w-fit cursor-pointer items-center gap-x-2 text-start text-xs font-light text-grayTextML antialiased desktop:text-sm"
                   onClick={() => handleClickOnFilterOption(filter.id)}
                 >
                   {filter.name}
-                  <span className="text-gray-400 text-xs font-light antialiased">
+                  <span className="text-xs font-light text-gray-400 antialiased">
                     ({filter.results})
                   </span>
                 </li>
@@ -72,7 +72,7 @@ const Filters = () => {
             </ul>
 
             <form
-              className="mt-2 flex gap-x-1 items-center"
+              className="mt-2 flex items-center gap-x-1"
               onSubmit={handleSubmitManualFilterOption}
             >
               <Input
@@ -81,7 +81,7 @@ const Filters = () => {
                 error={isValidMinValue}
                 value={minValue}
                 onChange={(e) => setMinValue(e.target.value)}
-                className="w-16 px-1 py-0.5 bg-white border-[1px] border-gray-400 rounded-md text-xs outline-0 focus:border-blueML focus:border-2 notebook:w-14 desktop:py-1"
+                className="w-16 rounded-md border-[1px] border-gray-400 bg-white px-1 py-0.5 text-xs outline-0 focus:border-2 focus:border-blueML notebook:w-14 desktop:py-1"
               />
 
               <span className="text-grayTextML">-</span>
@@ -92,12 +92,12 @@ const Filters = () => {
                 error={isValidMaxValue}
                 value={maxValue}
                 onChange={(e) => setMaxValue(e.target.value)}
-                className="w-16 px-1 py-0.5 bg-white border-[1px] border-gray-400 rounded-md text-xs outline-0 focus:border-blueML focus:border-2 notebook:w-14 desktop:py-1"
+                className="w-16 rounded-md border-[1px] border-gray-400 bg-white px-1 py-0.5 text-xs outline-0 focus:border-2 focus:border-blueML notebook:w-14 desktop:py-1"
               />
 
               <button
                 type="submit"
-                className="w-5 h-5 bg-blueML rounded-[100%] flex items-center justify-center disabled:bg-gray-400"
+                className="flex h-5 w-5 items-center justify-center rounded-[100%] bg-blueML disabled:bg-gray-400"
                 onSubmit={(e) => handleSubmitManualFilterOption(e)}
                 disabled={
                   (minValue === "" && maxValue === "") ||
@@ -111,7 +111,7 @@ const Filters = () => {
           </div>
         </div>
       ) : (
-        <div className={`hidden tablet:flex flex-col col-start-1 col-end-3`}>
+        <div className={`col-start-1 col-end-3 hidden flex-col tablet:flex`}>
           <FiltersSkeletons />
         </div>
       )}

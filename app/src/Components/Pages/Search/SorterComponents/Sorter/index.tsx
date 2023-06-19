@@ -28,11 +28,11 @@ const Sorter = () => {
         <div className={`hidden tablet:flex tablet:h-[92px]`} />
       ) : (
         <div
-          className={`hidden mt-12 mb-4 w-full justify-end items-center gap-x-1.5 relative ${
+          className={`relative mb-4 mt-12 hidden w-full items-center justify-end gap-x-1.5 ${
             totalResults === 0 ? "tablet:hidden" : "tablet:flex"
           }`}
         >
-          <span className="text-grayTextML text-sm">Ordernar por</span>
+          <span className="text-sm text-grayTextML">Ordernar por</span>
           <button
             className="flex items-center justify-center gap-x-1 transition-all hover:text-blueML"
             onClick={() =>

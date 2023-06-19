@@ -30,16 +30,16 @@ const FiltersMobileModal = () => {
           {availableFilters?.values.map((filter) => (
             <button
               key={filter.id}
-              className="text-blueML text-lg font-light antialiased py-5 w-full text-start flex items-center gap-x-2"
+              className="flex w-full items-center gap-x-2 py-5 text-start text-lg font-light text-blueML antialiased"
               onClick={() => handleClickOnFilterOption(filter.id)}
             >
               {filter.name}
-              <span className="text-gray-400 text-sm">({filter.results})</span>
+              <span className="text-sm text-gray-400">({filter.results})</span>
             </button>
           ))}
 
           <form
-            className="mt-4 flex flex-1 gap-x-2 items-center"
+            className="mt-4 flex flex-1 items-center gap-x-2"
             onSubmit={handleSubmitManualFilterOption}
           >
             <Input
@@ -48,7 +48,7 @@ const FiltersMobileModal = () => {
               error={isValidMinValue}
               value={minValue}
               onChange={(e) => setMinValue(e.target.value)}
-              className="w-24 px-2 py-1 bg-white border-[1px] border-gray-400 rounded-md text-sm outline-0 focus:border-blueML focus:border-2"
+              className="w-24 rounded-md border-[1px] border-gray-400 bg-white px-2 py-1 text-sm outline-0 focus:border-2 focus:border-blueML"
             />
 
             <span className="text-grayTextML">-</span>
@@ -59,12 +59,12 @@ const FiltersMobileModal = () => {
               error={isValidMaxValue}
               value={maxValue}
               onChange={(e) => setMaxValue(e.target.value)}
-              className="w-24 px-2 py-1 bg-white border-[1px] border-gray-400 rounded-md text-sm outline-0 focus:border-blueML focus:border-2"
+              className="w-24 rounded-md border-[1px] border-gray-400 bg-white px-2 py-1 text-sm outline-0 focus:border-2 focus:border-blueML"
             />
 
             <button
               type="submit"
-              className="bg-blueML rounded-[100%] flex items-center justify-center disabled:bg-grayML"
+              className="flex items-center justify-center rounded-[100%] bg-blueML disabled:bg-grayML"
               onSubmit={(e) => handleSubmitManualFilterOption(e)}
               disabled={
                 (minValue === "" && maxValue === "") ||

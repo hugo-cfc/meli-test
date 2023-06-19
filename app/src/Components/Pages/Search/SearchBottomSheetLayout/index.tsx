@@ -24,15 +24,15 @@ const SearchBottomSheetLayout = ({
     <>
       {currentModalType === modalType && (
         <>
-          <div className="py-4 px-8">
+          <div className="px-8 py-4">
             <button
-              className="w-9 py-1 aspect-square"
+              className="aspect-square w-9 py-1"
               onClick={handleCloseModal}
             >
-              <ArrowLeft className="text-blueML w-8" />
+              <ArrowLeft className="w-8 text-blueML" />
             </button>
 
-            <h1 className="text-grayTextML text-3xl mt-10">{title}</h1>
+            <h1 className="mt-10 text-3xl text-grayTextML">{title}</h1>
           </div>
 
           {children}
