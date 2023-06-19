@@ -9,19 +9,19 @@ const Input = ({ buttonIcon, error, ...rest }: InputProps) => {
   return (
     <div className="relative">
       <div
-        className={`max-w-[120px] text-center absolute top-[110%] px-3 py-2 text-xs font-medium text-white transition-all rounded-lg shadow-sm ${
-          error ? "animate-fadeImage visible bg-red-600" : "invisible"
+        className={`absolute top-[110%] max-w-[120px] rounded-lg px-3 py-2 text-center text-xs font-medium text-white shadow-sm transition-all ${
+          error ? "visible animate-fadeImage bg-red-600" : "invisible"
         }`}
       >
         {error}
       </div>
-      <div className="flex rounded-sm overflow-hidden">
+      <div className="flex overflow-hidden rounded-sm">
         <input style={{ flex: 1 }} {...rest} />
 
         {buttonIcon && (
           <button
             type="submit"
-            className="py-1 px-2 bg-grayML transition-all hover:bg-gray-100"
+            className="bg-grayML px-2 py-1 transition-all hover:bg-gray-100"
           >
             {buttonIcon}
           </button>

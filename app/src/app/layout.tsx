@@ -29,7 +29,7 @@ export default function RootLayout({
         <Providers>
           <Header />
 
-          <main className="m-auto w-screen min-h-screen h-10 tablet:w-[100%] tablet:px-2 notebook:px-0 notebook:w-[1000px] desktop:w-[1200px]">
+          <main className="m-auto h-10 min-h-screen w-screen tablet:w-[100%] tablet:px-2 notebook:w-[1000px] notebook:px-0 desktop:w-[1200px]">
             {children}
           </main>
         </Providers>
