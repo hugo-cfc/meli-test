@@ -1,18 +1,23 @@
 "use client";
 
-import { useSearchContext } from "../../../../../app/Context/searchContext";
 import { useSearchParams } from "next/navigation";
 import useSorter from "../../../../../hooks/useSorters";
-import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../../../hooks/reduxHooks/reduxHooks";
 import { RootState } from "../../../../../app/redux/store";
+import { setIsSorterDropdownOpen } from "../../../../../app/redux/Features/productsSlice";
 
 const DropdownSorter = () => {
   const { handleClickOnSortOption } = useSorter();
-  const { isSorterDropdownOpen, setIsSorterDropdownOpen } = useSearchContext();
   const searchParams = useSearchParams();
-
+  const dispatch = useAppDispatch();
   const availableSorts = useAppSelector(
     (state: RootState) => state.products.availableSorts
+  );
+  const isSorterDropdownOpen = useAppSelector(
+    (state: RootState) => state.products.isSorterDropdownOpen
   );
 
   const sort = searchParams.get("sort");
@@ -25,7 +30,7 @@ const DropdownSorter = () => {
             ? "fixed z-10 top-0 left-0 w-screen h-screen"
             : "hidden"
         }`}
-        onClick={() => setIsSorterDropdownOpen(false)}
+        onClick={() => dispatch(setIsSorterDropdownOpen(false))}
       />
       <div
         className={`overflow-hidden absolute z-10 top-[30px] right-0 bg-white rounded-md shadow-xl transition-all ${

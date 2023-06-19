@@ -3,7 +3,6 @@
 import SorterMobileModal from "../SorterComponents/SorterMobileModal";
 import FiltersMobileModal from "../FiltersComponents/FiltersMobileModal";
 import useSearchToolbar from "./useSearchToolbar";
-import { useSearchContext } from "../../../../app/Context/searchContext";
 import SearchDetails from "../SearchDetails";
 import useProducts from "../../../../hooks/useProducts";
 import { useAppSelector } from "../../../../hooks/reduxHooks/reduxHooks";
@@ -11,11 +10,14 @@ import { RootState } from "../../../../app/redux/store";
 
 const SearchToolbar = () => {
   const { handleOpenModal, pathname, toolbarOptions } = useSearchToolbar();
-  const { availableFilters, filters } = useSearchContext();
   const { isLoading } = useProducts();
   const totalResults = useAppSelector(
     (state: RootState) => state.products.totalResults
   );
+  const availableFilters = useAppSelector(
+    (state: RootState) => state.products.availableFilters
+  );
+  const filters = useAppSelector((state: RootState) => state.products.filters);
 
   return (
     <>

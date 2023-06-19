@@ -2,7 +2,6 @@
 
 import { ChevronRight } from "lucide-react";
 import Input from "../../../../Input";
-import { useSearchContext } from "../../../../../app/Context/searchContext";
 import FilterBadge from "../FilterBadge";
 import useFilters from "../../../../../hooks/useFilters";
 import useProducts from "../../../../../hooks/useProducts";
@@ -11,11 +10,14 @@ import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
 import { RootState } from "../../../../../app/redux/store";
 
 const Filters = () => {
-  const { filters, search, availableFilters } = useSearchContext();
   const totalResults = useAppSelector(
     (state: RootState) => state.products.totalResults
   );
-
+  const availableFilters = useAppSelector(
+    (state: RootState) => state.products.availableFilters
+  );
+  const filters = useAppSelector((state: RootState) => state.products.filters);
+  const search = useAppSelector((state: RootState) => state.products.search);
   const {
     handleClickOnFilterOption,
     handleSubmitManualFilterOption,
@@ -26,7 +28,6 @@ const Filters = () => {
     isValidMinValue,
     isValidMaxValue,
   } = useFilters();
-
   const { isLoading } = useProducts();
 
   return (
@@ -59,7 +60,7 @@ const Filters = () => {
               {availableFilters?.values.map((filter) => (
                 <li
                   key={filter.id}
-                  className="text-grayTextML text-xs font-light antialiased text-start flex items-center gap-x-2 mb-1 desktop:text-sm w-fit"
+                  className="text-grayTextML text-xs font-light antialiased text-start flex items-center gap-x-2 mb-1 desktop:text-sm w-fit cursor-pointer"
                   onClick={() => handleClickOnFilterOption(filter.id)}
                 >
                   {filter.name}

@@ -2,16 +2,22 @@
 
 import { ChevronDown } from "lucide-react";
 import DropdownSorter from "../DropdownSorter";
-import { useSearchContext } from "../../../../../app/Context/searchContext";
 import useProducts from "../../../../../hooks/useProducts";
-import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "../../../../../hooks/reduxHooks/reduxHooks";
 import { RootState } from "../../../../../app/redux/store";
+import { setIsSorterDropdownOpen } from "../../../../../app/redux/Features/productsSlice";
 
 const Sorter = () => {
-  const { isSorterDropdownOpen, setIsSorterDropdownOpen } = useSearchContext();
+  const dispatch = useAppDispatch();
   const { isLoading } = useProducts();
   const totalResults = useAppSelector(
     (state: RootState) => state.products.totalResults
+  );
+  const isSorterDropdownOpen = useAppSelector(
+    (state: RootState) => state.products.isSorterDropdownOpen
   );
 
   const sort = useAppSelector((state: RootState) => state.products.sort);
@@ -29,7 +35,9 @@ const Sorter = () => {
           <span className="text-grayTextML text-sm">Ordernar por</span>
           <button
             className="flex items-center justify-center gap-x-1 transition-all hover:text-blueML"
-            onClick={() => setIsSorterDropdownOpen((prevState) => !prevState)}
+            onClick={() =>
+              dispatch(setIsSorterDropdownOpen(!isSorterDropdownOpen))
+            }
           >
             <span
               className={`${

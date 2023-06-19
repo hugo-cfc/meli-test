@@ -1,11 +1,12 @@
 import urlGenerator from "../utils/urlGenerator";
-import { useSearchContext } from "../app/Context/searchContext";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useState } from "react";
+import { useAppSelector } from "./reduxHooks/reduxHooks";
+import { RootState } from "../app/redux/store";
 
 const useFilters = () => {
   const router = useRouter();
-  const { search } = useSearchContext();
+  const search = useAppSelector((state: RootState) => state.products.search);
   const searchParams = useSearchParams();
   const validationRegex = /^[0-9]+([,.][0-9]+)?$/;
 

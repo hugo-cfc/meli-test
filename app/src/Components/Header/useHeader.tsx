@@ -12,7 +12,7 @@ const useHeader = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    router.push(`/${search}?sort=relevance`);
+    router.push(`/${encodeURI(search)}?sort=relevance`);
   };
 
   const handleClickLogo = () => {
