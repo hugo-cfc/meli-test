@@ -22,9 +22,9 @@ const SearchToolbar = () => {
   return (
     <>
       {isLoading ? (
-        <div className={`flex h-[104px] tablet:hidden`} />
+        <nav className={`flex h-[104px] tablet:hidden`} />
       ) : (
-        <div
+        <nav
           className={`mb-4 ${totalResults === 0 ? "hidden" : "tablet:flex"}`}
         >
           <div className="flex h-12 w-screen bg-white tablet:hidden">
@@ -46,7 +46,7 @@ const SearchToolbar = () => {
           </div>
 
           <SearchDetails search={pathname} filters={filters} />
-        </div>
+        </nav>
       )}
     </>
   );

@@ -16,6 +16,17 @@ export const metadata: Metadata = {
   description:
     "Compre produtos com Frete Grátis no mesmo dia no Mercado Livre Brasil. Encontre milhares de marcas e produtos a preços incríveis.",
   themeColor: "#fff159",
+  openGraph: {
+    title: "Mercado Livre Brasil - Frete Grátis no mesmo dia",
+    description:
+      "Compre produtos com Frete Grátis no mesmo dia no Mercado Livre Brasil. Encontre milhares de marcas e produtos a preços incríveis.",
+    url: "https://www.mercadolivre.com.br/",
+    images:
+      "https://http2.mlstatic.com/D_NQ_668621-MLA70002392477_062023-OO.webp",
+  },
+  alternates: {
+    canonical: "/",
+  },
 };
 
 export default function RootLayout({

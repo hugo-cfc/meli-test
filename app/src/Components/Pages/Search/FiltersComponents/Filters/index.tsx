@@ -33,7 +33,7 @@ const Filters = () => {
   return (
     <>
       {!isLoading ? (
-        <div
+        <aside
           className={`col-start-1 col-end-3 hidden flex-col ${
             totalResults == 0 ? "tablet:hidden" : "tablet:flex"
           }`}
@@ -55,7 +55,7 @@ const Filters = () => {
           })}
 
           <div className="mt-4 flex flex-col">
-            <h1 className="mb-2">Preço</h1>
+            <h2 className="mb-2">Preço</h2>
             <ul>
               {availableFilters?.values.map((filter) => (
                 <li
@@ -109,7 +109,7 @@ const Filters = () => {
               </button>
             </form>
           </div>
-        </div>
+        </aside>
       ) : (
         <div className={`col-start-1 col-end-3 hidden flex-col tablet:flex`}>
           <FiltersSkeletons />
