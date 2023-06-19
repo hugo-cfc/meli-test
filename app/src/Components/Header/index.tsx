@@ -1,11 +1,12 @@
 "use client";
 
+import { Search } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+
 import LogoImage from "../../assets/logos/logo_ml.png";
 import Input from "../Input";
 import useHeader from "./useHeader";
-import { Search } from "lucide-react";
-import Link from "next/link";
 
 const Header = () => {
   const { handleSubmit, search, setSearch, handleClickLogo } = useHeader();
