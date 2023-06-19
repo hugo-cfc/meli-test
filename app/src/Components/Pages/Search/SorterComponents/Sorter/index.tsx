@@ -4,11 +4,16 @@ import { ChevronDown } from "lucide-react";
 import DropdownSorter from "../DropdownSorter";
 import { useSearchContext } from "../../../../../app/Context/searchContext";
 import useProducts from "../../../../../hooks/useProducts";
+import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
+import { RootState } from "../../../../../app/redux/store";
 
 const Sorter = () => {
-  const { isSorterDropdownOpen, setIsSorterDropdownOpen, sort, totalResults } =
+  const { isSorterDropdownOpen, setIsSorterDropdownOpen, sort } =
     useSearchContext();
   const { isLoading } = useProducts();
+  const totalResults = useAppSelector(
+    (state: RootState) => state.products.totalResults
+  );
 
   return (
     <>

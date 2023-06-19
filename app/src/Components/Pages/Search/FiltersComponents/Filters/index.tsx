@@ -7,10 +7,15 @@ import FilterBadge from "../FilterBadge";
 import useFilters from "../../../../../hooks/useFilters";
 import useProducts from "../../../../../hooks/useProducts";
 import FiltersSkeletons from "./skeleton";
+import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
+import { RootState } from "../../../../../app/redux/store";
 
 const Filters = () => {
-  const { filters, search, availableFilters, totalResults } =
-    useSearchContext();
+  const { filters, search, availableFilters } = useSearchContext();
+  const totalResults = useAppSelector(
+    (state: RootState) => state.products.totalResults
+  );
+
   const {
     handleClickOnFilterOption,
     handleSubmitManualFilterOption,

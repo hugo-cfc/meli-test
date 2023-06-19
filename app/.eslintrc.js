@@ -58,6 +58,15 @@ module.exports = {
     "@typescript-eslint/no-unsafe-assignment": "off",
     "@typescript-eslint/no-misused-promises": "off",
     "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/no-restricted-imports": [
+      "warn",
+      {
+        name: "react-redux",
+        importNames: ["useSelector", "useDispatch"],
+        message:
+          "Use typed hooks `useAppDispatch` and `useAppSelector` instead.",
+      },
+    ],
     "@typescript-eslint/ban-types": [
       "error",
       {

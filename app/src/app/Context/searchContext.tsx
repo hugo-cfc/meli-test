@@ -13,8 +13,6 @@ import Sort from "../../@types/Sort";
 import Filter from "../../@types/Filter";
 
 interface ContextProps {
-  totalResults: number;
-  setTotalResults: Dispatch<SetStateAction<number>>;
   products: Product[];
   setProducts: Dispatch<SetStateAction<Product[]>>;
   isSorterDropdownOpen: boolean;
@@ -32,8 +30,6 @@ interface ContextProps {
 }
 
 const SearchContext = createContext<ContextProps>({
-  totalResults: 0,
-  setTotalResults: () => 0,
   products: [],
   setProducts: () => [],
   isSorterDropdownOpen: false,
@@ -55,7 +51,6 @@ export const SearchContextProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const [totalResults, setTotalResults] = useState(0);
   const [products, setProducts] = useState<[] | Product[]>([]);
   const [isSorterDropdownOpen, setIsSorterDropdownOpen] = useState(false);
   const [search, setSearch] = useState("");
@@ -67,8 +62,6 @@ export const SearchContextProvider = ({
   return (
     <SearchContext.Provider
       value={{
-        totalResults,
-        setTotalResults,
         products,
         setProducts,
         isSorterDropdownOpen,
