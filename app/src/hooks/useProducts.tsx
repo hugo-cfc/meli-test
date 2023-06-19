@@ -14,11 +14,13 @@ import {
 import getProducts from "../fetchers/getProducts";
 import { useAppDispatch } from "../hooks/reduxHooks/reduxHooks";
 import urlGenerator from "../utils/urlGenerator";
+import { useSnackbar } from "notistack";
 
 const useProducts = () => {
   const dispatch = useAppDispatch();
   const searchPath = usePathname();
   const searchParams = useSearchParams();
+  const { enqueueSnackbar } = useSnackbar();
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -63,7 +65,10 @@ const useProducts = () => {
 
         setIsLoading(false);
       } catch (error) {
-        // console.error("Erro ao obter produtos:", error);
+        enqueueSnackbar({
+          message: "Erro ao obter produtos",
+          variant: "error",
+        });
 
         setIsLoading(false);
       }
