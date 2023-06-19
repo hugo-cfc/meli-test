@@ -18,6 +18,7 @@ const Header = () => {
             className="w-11 col-start-1 col-end-2"
             src={LogoImage}
             alt="Mercado Livre"
+            priority
           />
         </Link>
 

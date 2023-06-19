@@ -1,9 +1,10 @@
-import { useSearchContext } from "../../../../app/Context/searchContext";
+import { RootState } from "../../../../app/redux/store";
+import { useAppSelector } from "../../../../hooks/reduxHooks/reduxHooks";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const useSearchBottomSheetLayout = () => {
   const router = useRouter();
-  const { search } = useSearchContext();
+  const search = useAppSelector((state: RootState) => state.products.search);
   const searchParams = useSearchParams();
 
   const queryParams = new URLSearchParams(searchParams);

@@ -1,25 +1,25 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import getProducts from "../../../../../fetchers/getProducts";
-import { useSearchContext } from "../../../../../app/Context/searchContext";
+import getProducts from "../fetchers/getProducts";
 import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-import urlGenerator from "../../../../../utils/urlGenerator";
+import urlGenerator from "../utils/urlGenerator";
+import {
+  setTotalResults,
+  setProducts,
+  setSort,
+  setAvailableSorts,
+  setAvailableFilters,
+  setFilters,
+  setSearch,
+} from "../app/redux/Features/productsSlice";
+import { useAppDispatch } from "../hooks/reduxHooks/reduxHooks";
 
 const useProducts = () => {
-  const {
-    setTotalResults,
-    setProducts,
-    setSearch,
-    setSort,
-    setAvailableSorts,
-    setAvailableFilters,
-    setFilters,
-  } = useSearchContext();
+  const dispatch = useAppDispatch();
+  const searchPath = usePathname();
+  const searchParams = useSearchParams();
 
   const [isLoading, setIsLoading] = useState(true);
-
-  const searchParams = useSearchParams();
-  const searchPath = usePathname();
 
   const paramsSort = searchParams.get("sort");
   const paramsPrice = searchParams.get("price");
@@ -40,7 +40,7 @@ const useProducts = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    setSearch(formattedPathname);
+    dispatch(setSearch(formattedPathname));
 
     (async () => {
       try {
@@ -53,12 +53,13 @@ const useProducts = () => {
           sortApi,
         } = await getProducts(generatedUrl);
 
-        setProducts(results);
-        setTotalResults(paging.total);
-        setSort(sortApi);
-        setAvailableSorts(available_sorts);
-        setAvailableFilters(availableFilters);
-        setFilters(filters);
+        dispatch(setProducts(results));
+        dispatch(setTotalResults(paging.total));
+        dispatch(setSort(sortApi));
+        dispatch(setAvailableSorts(available_sorts));
+        dispatch(setAvailableFilters(availableFilters));
+        dispatch(setFilters(filters));
+
         setIsLoading(false);
       } catch (error) {
         // console.error("Erro ao obter produtos:", error);

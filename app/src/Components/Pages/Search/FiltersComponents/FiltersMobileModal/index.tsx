@@ -5,10 +5,13 @@ import SearchBottomSheetLayout from "../../SearchBottomSheetLayout";
 import { ChevronRight } from "lucide-react";
 import Input from "../../../../Input";
 import useFilters from "../../../../../hooks/useFilters";
-import { useSearchContext } from "../../../../../app/Context/searchContext";
+import { RootState } from "../../../../../app/redux/store";
+import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
 
 const FiltersMobileModal = () => {
-  const { availableFilters } = useSearchContext();
+  const availableFilters = useAppSelector(
+    (state: RootState) => state.products.availableFilters
+  );
   const {
     handleClickOnFilterOption,
     handleSubmitManualFilterOption,

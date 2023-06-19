@@ -1,10 +1,13 @@
 import urlGenerator from "../utils/urlGenerator";
-import { useSearchContext } from "../app/Context/searchContext";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useAppDispatch, useAppSelector } from "./reduxHooks/reduxHooks";
+import { RootState } from "../app/redux/store";
+import { setIsSorterDropdownOpen } from "../app/redux/Features/productsSlice";
 
 const useSorter = () => {
   const router = useRouter();
-  const { search, setIsSorterDropdownOpen } = useSearchContext();
+  const dispatch = useAppDispatch();
+  const search = useAppSelector((state: RootState) => state.products.search);
   const searchParams = useSearchParams();
 
   const queryParams = new URLSearchParams(searchParams);
@@ -20,7 +23,7 @@ const useSorter = () => {
       }
     );
 
-    setIsSorterDropdownOpen(false);
+    dispatch(setIsSorterDropdownOpen(false));
 
     queryParams.delete("modal-type");
 
