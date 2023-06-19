@@ -1,11 +1,11 @@
 "use client";
 
+import { RootState } from "../../../../../app/redux/store";
+import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
+import useProducts from "../../../../../hooks/useProducts";
 import EmptySearch from "../../../../EmptySearch";
 import Product from "../Product";
-import useProducts from "../../../../../hooks/useProducts";
 import ProductSkeleton from "../Product/skeleton";
-import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
-import { RootState } from "../../../../../app/redux/store";
 
 const Products = () => {
   const { isLoading } = useProducts();

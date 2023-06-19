@@ -1,8 +1,9 @@
 import { Metadata } from "next";
+
+import Filters from "../../Components/Pages/Search/FiltersComponents/Filters";
 import Products from "../../Components/Pages/Search/ProductsComponents/Products";
 import SearchToolbar from "../../Components/Pages/Search/SearchToolbar";
 import Sorter from "../../Components/Pages/Search/SorterComponents/Sorter";
-import Filters from "../../Components/Pages/Search/FiltersComponents/Filters";
 
 interface Props {
   params: { search: string };

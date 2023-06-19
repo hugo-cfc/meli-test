@@ -1,8 +1,9 @@
-import urlGenerator from "../utils/urlGenerator";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useAppDispatch, useAppSelector } from "./reduxHooks/reduxHooks";
-import { RootState } from "../app/redux/store";
+
 import { setIsSorterDropdownOpen } from "../app/redux/Features/productsSlice";
+import { RootState } from "../app/redux/store";
+import urlGenerator from "../utils/urlGenerator";
+import { useAppDispatch, useAppSelector } from "./reduxHooks/reduxHooks";
 
 const useSorter = () => {
   const router = useRouter();
