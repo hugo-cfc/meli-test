@@ -16,7 +16,7 @@ const Input = ({ error, ...rest }: InputProps) => {
       </div>
 
       <div className="flex overflow-hidden rounded-sm rounded-r-none">
-        <input style={{ flex: 1 }} {...rest} />
+        <input type="text" style={{ flex: 1 }} {...rest} />
       </div>
     </div>
   );
