@@ -43,6 +43,7 @@ const Product = ({ product }: ProductProps) => {
                   <h1 className="text-xl font-light text-grayTextML desktop:text-2xl">
                     {formattedPrice}
                   </h1>
+
                   {product.shipping.free_shipping && (
                     <div className="flex h-4 w-4 items-center justify-center rounded-full bg-green-500">
                       <Truck className="w-2" />
