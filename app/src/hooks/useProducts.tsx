@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import { usePathname, useSearchParams } from "next/navigation";
+import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
 
 import {
@@ -12,9 +13,8 @@ import {
   setSearch,
 } from "../app/redux/Features/productsSlice";
 import getProducts from "../fetchers/getProducts";
-import { useAppDispatch } from "../hooks/reduxHooks/reduxHooks";
 import urlGenerator from "../functions/urlGenerator";
-import { useSnackbar } from "notistack";
+import { useAppDispatch } from "../hooks/reduxHooks/reduxHooks";
 
 const useProducts = () => {
   const dispatch = useAppDispatch();
