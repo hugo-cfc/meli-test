@@ -5,7 +5,7 @@ import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
 import useProducts from "../../../../../hooks/useProducts";
 import EmptySearch from "../../../../EmptySearch";
 import Product from "../Product";
-import ProductSkeleton from "../Product/skeleton";
+import { ProductsSkeleton } from "./skeleton";
 
 const Products = () => {
   const { isLoading } = useProducts();
@@ -13,15 +13,11 @@ const Products = () => {
     (state: RootState) => state.products.products
   );
 
-  const ProductLoadingMock = Array(5)
-    .fill(null)
-    .map(() => <ProductSkeleton key={crypto.randomUUID()} />);
-
   return (
     <>
       {isLoading ? (
         <section className="col-start-3 col-end-9 flex flex-col notebook:col-end-13">
-          {ProductLoadingMock}
+          {ProductsSkeleton}
         </section>
       ) : products.length > 0 ? (
         <section className="col-start-3 col-end-9 flex flex-col notebook:col-end-13">

@@ -1,11 +1,12 @@
 "use client";
 
+import { useSearchParams } from "next/navigation";
+
+import { RootState } from "../../../../../app/redux/store";
+import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
+import useSorter from "../../../../../hooks/useSorters";
 import BottomSheet from "../../../../BottomSheet";
 import SearchBottomSheetLayout from "../../SearchBottomSheetLayout";
-import useSorter from "../../../../../hooks/useSorters";
-import { useSearchParams } from "next/navigation";
-import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
-import { RootState } from "../../../../../app/redux/store";
 
 const SorterMobileModal = () => {
   const { handleClickOnSortOption } = useSorter();

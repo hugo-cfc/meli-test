@@ -1,7 +1,7 @@
 "use client";
 
-import { Provider } from "react-redux";
 import { SnackbarProvider } from "notistack";
+import { Provider } from "react-redux";
 
 import { store } from "./redux/store";
 

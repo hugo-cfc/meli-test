@@ -25,17 +25,21 @@ const Filters = () => {
     maxValue,
     setMinValue,
     setMaxValue,
-    isValidMinValue,
-    isValidMaxValue,
+    isNotAvailableToSubmit,
+    isValidValue,
   } = useFilters();
   const { isLoading } = useProducts();
 
   return (
     <>
-      {!isLoading ? (
+      {isLoading ? (
+        <div className={`col-start-1 col-end-3 hidden flex-col tablet:flex`}>
+          <FiltersSkeletons />
+        </div>
+      ) : (
         <aside
           className={`col-start-1 col-end-3 hidden flex-col ${
-            totalResults == 0 ? "tablet:hidden" : "tablet:flex"
+            totalResults === 0 ? "tablet:hidden" : "tablet:flex"
           }`}
         >
           <h1 className="text-2xl text-grayTextML line-clamp-3 tablet:line-clamp-2">
@@ -78,7 +82,7 @@ const Filters = () => {
               <Input
                 type="text"
                 placeholder="Mínimo"
-                error={isValidMinValue}
+                error={isValidValue(minValue)}
                 value={minValue}
                 onChange={(e) => setMinValue(e.target.value)}
                 className="w-16 rounded-md border-[1px] border-gray-400 bg-white px-1 py-0.5 text-xs outline-0 focus:border-2 focus:border-blueML notebook:w-14 desktop:py-1"
@@ -89,7 +93,7 @@ const Filters = () => {
               <Input
                 type="text"
                 placeholder="Máximo"
-                error={isValidMaxValue}
+                error={isValidValue(maxValue)}
                 value={maxValue}
                 onChange={(e) => setMaxValue(e.target.value)}
                 className="w-16 rounded-md border-[1px] border-gray-400 bg-white px-1 py-0.5 text-xs outline-0 focus:border-2 focus:border-blueML notebook:w-14 desktop:py-1"
@@ -99,21 +103,13 @@ const Filters = () => {
                 type="submit"
                 className="flex h-5 w-5 items-center justify-center rounded-[100%] bg-blueML disabled:bg-gray-400"
                 onSubmit={(e) => handleSubmitManualFilterOption(e)}
-                disabled={
-                  (minValue === "" && maxValue === "") ||
-                  isValidMinValue !== "" ||
-                  isValidMaxValue !== ""
-                }
+                disabled={isNotAvailableToSubmit}
               >
                 <ChevronRight className="w-4 text-white" />
               </button>
             </form>
           </div>
         </aside>
-      ) : (
-        <div className={`col-start-1 col-end-3 hidden flex-col tablet:flex`}>
-          <FiltersSkeletons />
-        </div>
       )}
     </>
   );

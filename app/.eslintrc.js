@@ -44,6 +44,7 @@ module.exports = {
     "prettier/prettier": [
       "error",
       {
+        // plugins: ["prettier-plugin-tailwindcss"],
         printWidth: 80,
         endOfLine: "lf",
         singleQuote: false,
@@ -51,7 +52,6 @@ module.exports = {
         indentStyle: "space",
         useTabs: false,
         trailingComma: "es5",
-        plugins: ["prettier-plugin-tailwindcss"]
       },
     ],
     "@typescript-eslint/no-explicit-any": "warn",

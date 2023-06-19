@@ -5,7 +5,7 @@ const ProductSkeleton = () => (
     <div className="flex flex-1 flex-col gap-y-2">
       <div className="h-6 w-24 bg-gray-400" />
 
-      <div className="h-12 w-[150px] bg-gray-400 tablet:w-[240px]" />
+      <div className="h-12 w-[150px] bg-gray-400 tablet:w-[240px] notebook:w-[500px]" />
 
       <div className="h-6 w-[120px] bg-gray-400" />
     </div>
