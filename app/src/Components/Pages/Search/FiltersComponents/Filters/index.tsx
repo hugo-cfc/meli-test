@@ -1,13 +1,14 @@
 "use client";
 
 import { ChevronRight } from "lucide-react";
-import Input from "../../../../Input";
-import FilterBadge from "../FilterBadge";
+
+import { RootState } from "../../../../../app/redux/store";
+import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
 import useFilters from "../../../../../hooks/useFilters";
 import useProducts from "../../../../../hooks/useProducts";
+import Input from "../../../../Input";
+import FilterBadge from "../FilterBadge";
 import FiltersSkeletons from "./skeleton";
-import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
-import { RootState } from "../../../../../app/redux/store";
 
 const Filters = () => {
   const totalResults = useAppSelector(

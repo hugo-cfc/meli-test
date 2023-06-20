@@ -1,6 +1,7 @@
 "use client";
 
 import { X as XIcon } from "lucide-react";
+
 import useFilters from "../../../../../hooks/useFilters";
 
 interface FilterBadgeProps {
