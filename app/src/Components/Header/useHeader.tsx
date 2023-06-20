@@ -21,7 +21,14 @@ const useHeader = () => {
     router.push("/");
   };
 
-  return { handleSubmit, search, setSearch, handleClickLogo, formatedPathname };
+  return {
+    handleSubmit,
+    search,
+    setSearch,
+    handleClickLogo,
+    formatedPathname,
+    router,
+  };
 };
 
 export default useHeader;
