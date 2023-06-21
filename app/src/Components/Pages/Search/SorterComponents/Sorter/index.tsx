@@ -26,12 +26,16 @@ const Sorter = () => {
   return (
     <>
       {isLoading ? (
-        <div className={`hidden tablet:flex tablet:h-[92px]`} />
+        <div
+          className={`hidden tablet:flex tablet:h-[92px]`}
+          data-testid="is-loading-container"
+        />
       ) : (
         <div
           className={`relative mb-4 mt-12 hidden w-full items-center justify-end gap-x-1.5 ${
             totalResults === 0 ? "tablet:hidden" : "tablet:flex"
           }`}
+          data-testid="sorter-container"
         >
           <span className="text-sm text-grayTextML">Ordernar por</span>
           <button
