@@ -67,6 +67,7 @@ const Filters = () => {
                   key={filter.id}
                   className="mb-1 flex w-fit cursor-pointer items-center gap-x-2 text-start text-xs font-light text-grayTextML antialiased desktop:text-sm"
                   onClick={() => handleClickOnFilterOption(filter.id)}
+                  data-testid="filter-li"
                 >
                   {filter.name}
                   <span className="text-xs font-light text-gray-400 antialiased">
