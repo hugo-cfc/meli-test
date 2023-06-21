@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import SearchImage from "../../assets/images/search.svg";
 
 interface EmptySearchProps {
@@ -11,10 +12,13 @@ export default function EmptySearch({ description }: EmptySearchProps) {
       <Image
         className="w-[200px] animate-fadeImage tablet:w-[400px]"
         src={SearchImage}
-        alt="Busca no site"
+        alt={description}
       />
 
-      <h1 className="text-center text-gray-600 tablet:text-xl">
+      <h1
+        className="text-center text-gray-600 tablet:text-xl"
+        data-testid="h1-description"
+      >
         {description}
       </h1>
     </div>

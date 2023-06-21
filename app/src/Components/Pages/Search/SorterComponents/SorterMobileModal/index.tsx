@@ -21,7 +21,7 @@ const SorterMobileModal = () => {
   return (
     <BottomSheet modalType="sort">
       <SearchBottomSheetLayout title="Ordernar por" modalType="sort">
-        <ul className="mt-10">
+        <ul className="mt-10" data-testid="container-ul-sorter">
           {availableSorts.map((option) => (
             <li
               key={option.id}

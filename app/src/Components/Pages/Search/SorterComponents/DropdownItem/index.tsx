@@ -16,9 +16,15 @@ const SorterDropdownItem = ({ item }: SorterDropdownItemProps) => {
   const sort = searchParams.get("sort");
 
   return (
-    <li className="relative border-y-[1px] border-grayML transition-all hover:bg-slate-200">
+    <li
+      className="relative border-y-[1px] border-grayML transition-all hover:bg-slate-200"
+      data-testid="container"
+    >
       {sort === item.id && (
-        <hr className="absolute left-0 top-0 h-full w-1.5 bg-blueML" />
+        <hr
+          className="absolute left-0 top-0 h-full w-1.5 bg-blueML"
+          data-testid="active-indicator"
+        />
       )}
 
       <button

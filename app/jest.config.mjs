@@ -14,6 +14,7 @@ const config = {
   collectCoverage: true,
   coverageReporters: ["lcov", "json", "html", "text", "text-summary"],
   collectCoverageFrom: ["<rootDir>/**/*.ts", "<rootDir>/**/*.tsx"],
+  modulePathIgnorePatterns: ["<rootDir>/.next/"],
 };
 
 export default createJestConfig(config);

@@ -1,8 +1,9 @@
 "use client";
 
 import { ArrowLeft } from "lucide-react";
-import useSearchBottomSheetLayout from "./useSearchBottomSheetLayout";
 import { useSearchParams } from "next/navigation";
+
+import useSearchBottomSheetLayout from "./useSearchBottomSheetLayout";
 
 interface SearchBottomSheetLayoutProps {
   modalType: string;
@@ -24,15 +25,21 @@ const SearchBottomSheetLayout = ({
     <>
       {currentModalType === modalType && (
         <>
-          <div className="px-8 py-4">
+          <div className="px-8 py-4" data-testid="item-component">
             <button
               className="aspect-square w-9 py-1"
               onClick={handleCloseModal}
+              data-testid="item-component"
             >
-              <ArrowLeft className="w-8 text-blueML" />
+              <ArrowLeft
+                className="w-8 text-blueML"
+                data-testid="item-component"
+              />
             </button>
 
-            <h1 className="mt-10 text-3xl text-grayTextML">{title}</h1>
+            <h1 className="mt-10 text-3xl text-grayTextML" data-testid="title">
+              {title}
+            </h1>
           </div>
 
           {children}

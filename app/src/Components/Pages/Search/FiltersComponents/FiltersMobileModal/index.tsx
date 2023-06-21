@@ -1,12 +1,13 @@
 "use client";
 
-import BottomSheet from "../../../../BottomSheet";
-import SearchBottomSheetLayout from "../../SearchBottomSheetLayout";
 import { ChevronRight } from "lucide-react";
-import Input from "../../../../Input";
-import useFilters from "../../../../../hooks/useFilters";
+
 import { RootState } from "../../../../../app/redux/store";
 import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
+import useFilters from "../../../../../hooks/useFilters";
+import BottomSheet from "../../../../BottomSheet";
+import Input from "../../../../Input";
+import SearchBottomSheetLayout from "../../SearchBottomSheetLayout";
 
 const FiltersMobileModal = () => {
   const availableFilters = useAppSelector(

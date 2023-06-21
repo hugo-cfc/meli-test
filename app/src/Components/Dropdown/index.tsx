@@ -24,6 +24,7 @@ const Dropdown = ({ children }: { children: ReactNode }) => {
             : "hidden"
         }`}
         onClick={() => dispatch(setIsSorterDropdownOpen(false))}
+        data-testid="overlay-div"
       />
       <div
         className={`absolute right-0 top-[30px] z-10 overflow-hidden rounded-md bg-white shadow-xl transition-all ${
