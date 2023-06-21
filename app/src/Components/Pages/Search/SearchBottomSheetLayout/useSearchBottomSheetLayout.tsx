@@ -10,17 +10,17 @@ const useSearchBottomSheetLayout = () => {
 
   const queryParams = new URLSearchParams(searchParams);
 
+  const params = queryParams.toString();
+
   const handleCloseModal = () => {
     queryParams.delete("modal-type");
-
-    const params = queryParams.toString();
 
     router.push(`/${search}?${params}`, {
       shallow: true,
     });
   };
 
-  return { handleCloseModal };
+  return { handleCloseModal, router };
 };
 
 export default useSearchBottomSheetLayout;
