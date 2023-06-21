@@ -3,19 +3,8 @@ import { useSearchParams } from "next/navigation";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 
+import { sortMock } from "../../../../../../mocks/sort";
 import DropdownItem from "../../../../../../src/Components/Pages/Search/SorterComponents/DropdownItem";
-
-const sorterMock = [
-  {
-    id: "relevance",
-    name: "Relevancia",
-  },
-
-  {
-    id: "asc",
-    name: "Menor preço",
-  },
-];
 
 const mockStore = configureStore([]);
 
@@ -40,13 +29,13 @@ describe("<DropdownItem/>", () => {
 
     render(
       <Provider store={store}>
-        <DropdownItem item={sorterMock[0]} />
+        <DropdownItem item={sortMock[0]} />
       </Provider>
     );
 
     const container = screen.getByTestId("container");
     const activeIndicator = screen.getByTestId("active-indicator");
-    const button = screen.getByText(sorterMock[0].name);
+    const button = screen.getByText(sortMock[0].name);
 
     expect(container).toBeInTheDocument();
     expect(activeIndicator).toBeInTheDocument();
@@ -61,12 +50,12 @@ describe("<DropdownItem/>", () => {
 
     render(
       <Provider store={store}>
-        <DropdownItem item={sorterMock[1]} />
+        <DropdownItem item={sortMock[1]} />
       </Provider>
     );
 
     const activeIndicator = screen.queryByTestId("active-indicator");
-    const button = screen.getByText(sorterMock[1].name);
+    const button = screen.getByText(sortMock[1].name);
 
     expect(button).toHaveClass("text-grayTextML");
     expect(activeIndicator).toBeNull();
