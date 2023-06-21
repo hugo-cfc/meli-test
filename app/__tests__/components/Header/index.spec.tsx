@@ -8,7 +8,7 @@ jest.mock("next/navigation", () => ({
 }));
 
 describe("<Header />", () => {
-  it("renders without crashing", () => {
+  it("should renders correctly", () => {
     render(<Header />);
 
     const header = screen.getByTestId("header-container");

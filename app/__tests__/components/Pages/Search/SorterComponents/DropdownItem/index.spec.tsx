@@ -21,7 +21,7 @@ jest.mock("next/navigation", () => ({
   useSearchParams: jest.fn(),
 }));
 
-describe("<DropdownItem/>", () => {
+describe("<DropdownItem />", () => {
   it("should render correctly and with active indicator", () => {
     (useSearchParams as jest.Mock).mockReturnValue({
       get: jest.fn().mockReturnValue("relevance"),

@@ -39,7 +39,7 @@ describe("<Products />", () => {
     expect(queryByTestId("empty-search")).toBeNull();
   });
 
-  it("should render EmptySearch component correctly", () => {
+  it("when products.length = 0, should render EmptySearch component", () => {
     const initialState = {
       products: {
         products: [],
@@ -59,7 +59,7 @@ describe("<Products />", () => {
     expect(queryByTestId("empty-search")).toBeInTheDocument();
   });
 
-  it("should render Skeleton component correctly", () => {
+  it("when isLoading = true, should render Skeleton component", () => {
     (useProducts as jest.Mock).mockReturnValue({
       isLoading: true,
     });

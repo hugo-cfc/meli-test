@@ -31,8 +31,8 @@ jest.mock("../../../../../src/hooks/reduxHooks/reduxHooks", () => ({
   useAppSelector: jest.fn(),
 }));
 
-describe("SearchBottomSheetLayout", () => {
-  it("renders the component correctly when modalType matches", () => {
+describe("<SearchBottomSheetLayout />", () => {
+  it("should render the component correctly when modalType matches", () => {
     const initialState = {
       products: {
         search: true,
@@ -61,7 +61,7 @@ describe("SearchBottomSheetLayout", () => {
     expect(childrenElement).toBeInTheDocument();
   });
 
-  it("does not render the component when modalType does not match", () => {
+  it("shouldn't render the component when modalType don't match", () => {
     const initialState = {
       products: {
         search: true,
