@@ -1,44 +1,85 @@
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
+import { Provider } from "react-redux";
+import configureStore from "redux-mock-store";
 
-import {
-  product,
-  noFreeShipingProduct,
-  noInstallmentsProduct,
-} from "../../../../../../mocks/product";
-import Product from "../../../../../../src/Components/Pages/Search/ProductsComponents/Product";
+import { product } from "../../../../../../mocks/product";
+import Products from "../../../../../../src/Components/Pages/Search/ProductsComponents/Products";
+import useProducts from "../../../../../../src/hooks/useProducts";
 
-describe("<Product />", () => {
-  it("should render Product, free shipping and installments", () => {
-    render(<Product product={product} />);
+jest.mock("../../../../../../src/hooks/useProducts", () => {
+  return jest.fn(() => ({
+    isLoading: false,
+  }));
+});
 
-    const image = screen.getByAltText(product.title);
-    const price = screen.getByTestId("h1-price");
-    const freeShipingBadge = screen.getByTestId("free-shipping");
-    const stateName = screen.getAllByText(product.address.state_name);
-    const title = screen.getByText(product.title);
-    const installments = screen.getByTestId("span-installments");
+jest.mock("../../../../../../src/Components/EmptySearch", () => {
+  return jest.fn(() => <div data-testid="empty-search" />);
+});
 
-    expect(image).toBeInTheDocument();
-    expect(freeShipingBadge).toBeInTheDocument();
-    expect(title).toBeInTheDocument();
-    expect(price).toBeInTheDocument();
-    expect(stateName[0]).toBeInTheDocument();
-    expect(installments).toBeInTheDocument();
+const mockStore = configureStore([]);
+
+describe("<Products />", () => {
+  it("should render Products correctly", () => {
+    const initialState = {
+      products: {
+        products: [product],
+      },
+    };
+
+    const store = mockStore(initialState);
+
+    const { queryByTestId } = render(
+      <Provider store={store}>
+        <Products />
+      </Provider>
+    );
+
+    expect(queryByTestId("products-section")).toBeInTheDocument();
+    expect(queryByTestId("skeleton")).toBeNull();
+    expect(queryByTestId("empty-search")).toBeNull();
   });
 
-  it("should render Product, installments, but don't free shipping", () => {
-    render(<Product product={noFreeShipingProduct} />);
+  it("should render EmptySearch component correctly", () => {
+    const initialState = {
+      products: {
+        products: [],
+      },
+    };
 
-    const freeShipingBadge = screen.queryByTestId("free-shipping");
+    const store = mockStore(initialState);
 
-    expect(freeShipingBadge).not.toBeInTheDocument();
+    const { queryByTestId } = render(
+      <Provider store={store}>
+        <Products />
+      </Provider>
+    );
+
+    expect(queryByTestId("products-section")).toBeNull();
+    expect(queryByTestId("skeleton")).toBeNull();
+    expect(queryByTestId("empty-search")).toBeInTheDocument();
   });
 
-  it("should render Product, free shipping, but don't installments", () => {
-    render(<Product product={noInstallmentsProduct} />);
+  it("should render Skeleton component correctly", () => {
+    (useProducts as jest.Mock).mockReturnValue({
+      isLoading: true,
+    });
 
-    const installments = screen.queryByTestId("span-installments");
+    const initialState = {
+      products: {
+        products: [],
+      },
+    };
 
-    expect(installments).not.toBeInTheDocument();
+    const store = mockStore(initialState);
+
+    const { queryByTestId } = render(
+      <Provider store={store}>
+        <Products />
+      </Provider>
+    );
+
+    expect(queryByTestId("skeleton")).toBeInTheDocument();
+    expect(queryByTestId("products-section")).toBeNull();
+    expect(queryByTestId("empty-search")).toBeNull();
   });
 });
