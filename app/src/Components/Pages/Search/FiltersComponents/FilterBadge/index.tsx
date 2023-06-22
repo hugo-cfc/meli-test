@@ -5,7 +5,7 @@ import { X as XIcon } from "lucide-react";
 import useFilters from "../../../../../hooks/useFilters";
 
 interface FilterBadgeProps {
-  title: string;
+  title?: string;
 }
 
 const FilterBadge = ({ title }: FilterBadgeProps) => {

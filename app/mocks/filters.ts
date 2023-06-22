@@ -1,4 +1,6 @@
-export const filters = [
+import Filter from "../src/@types/Filter";
+
+export const filters: Filter[] = [
   {
     id: "price",
     name: "Precio",
@@ -12,7 +14,7 @@ export const filters = [
   },
 ];
 
-export const filtersWithoutPrice = [
+export const filtersWithoutPrice: Filter[] = [
   {
     id: "state",
     name: "Ubicación",
