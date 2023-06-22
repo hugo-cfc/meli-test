@@ -34,7 +34,7 @@ const Header = () => {
           <Input
             className="px-2 py-2 text-xs placeholder-gray-300 placeholder:font-normal tablet:py-1.5 tablet:text-sm"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => setSearch(e.target.value.trim())}
             placeholder="Buscar produtos, marcas e muito mais"
             required
           />
