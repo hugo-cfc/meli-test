@@ -101,7 +101,7 @@ const Filters = () => {
                 value={minValue}
                 onChange={(e) => setMinValue(e.target.value)}
                 className="w-16 rounded-md border-[1px] border-gray-400 bg-white px-1 py-0.5 text-xs outline-0 focus:border-2 focus:border-blueML notebook:w-14 desktop:py-1"
-                data-testid="min-input"
+                data-testid="input-min-value"
               />
 
               <span className="text-grayTextML">-</span>
@@ -113,13 +113,12 @@ const Filters = () => {
                 value={maxValue}
                 onChange={(e) => setMaxValue(e.target.value)}
                 className="w-16 rounded-md border-[1px] border-gray-400 bg-white px-1 py-0.5 text-xs outline-0 focus:border-2 focus:border-blueML notebook:w-14 desktop:py-1"
-                data-testid="max-input"
+                data-testid="input-max-value"
               />
 
               <button
                 type="submit"
                 className="flex h-5 w-5 items-center justify-center rounded-[100%] bg-blueML disabled:bg-gray-400"
-                onSubmit={(e) => handleSubmitManualFilterOption(e)}
                 disabled={isNotAvailableToSubmit}
                 data-testid="submit-button"
               >

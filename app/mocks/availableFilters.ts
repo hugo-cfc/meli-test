@@ -10,3 +10,10 @@ export const availableFilters = {
     },
   ],
 };
+
+export const noFilters = {
+  id: "price",
+  name: "Precio",
+  type: "range",
+  values: [],
+};

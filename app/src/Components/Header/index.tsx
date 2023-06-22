@@ -36,6 +36,7 @@ const Header = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Buscar produtos, marcas e muito mais"
+            required
           />
           <button
             type="submit"
