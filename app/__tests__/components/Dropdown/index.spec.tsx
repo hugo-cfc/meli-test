@@ -1,4 +1,4 @@
-import { fireEvent, render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 
@@ -53,13 +53,13 @@ describe("<Dropdown />", () => {
     const store = mockStore(initialState);
     store.dispatch = jest.fn();
 
-    const { getByTestId } = render(
+    render(
       <Provider store={store}>
         <Dropdown>Conteúdo do Dropdown</Dropdown>
       </Provider>
     );
 
-    const overlayDiv = getByTestId("overlay-div");
+    const overlayDiv = screen.getByTestId("overlay-div");
     fireEvent.click(overlayDiv);
 
     store.dispatch(setIsSorterDropdownOpen(false));
