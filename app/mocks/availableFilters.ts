@@ -1,4 +1,6 @@
-export const availableFilters = {
+import Filter from "../src/@types/Filter";
+
+export const availableFilters: Filter = {
   id: "price",
   name: "Precio",
   type: "range",
@@ -11,7 +13,7 @@ export const availableFilters = {
   ],
 };
 
-export const noFilters = {
+export const noFilters: Filter = {
   id: "price",
   name: "Precio",
   type: "range",

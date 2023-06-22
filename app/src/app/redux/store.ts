@@ -1,6 +1,7 @@
 "use client";
 
 import { configureStore } from "@reduxjs/toolkit";
+
 import rootReducer from "./Features/productsSlice";
 
 export const store = configureStore({

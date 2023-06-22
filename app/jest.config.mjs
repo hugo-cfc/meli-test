@@ -20,6 +20,7 @@ const config = {
     "<rootDir>/src/app/page.tsx",
     "<rootDir>/src/app/Providers.tsx",
     "<rootDir>/src/app/[search]/page.tsx",
+    "<rootDir>/src/app/api",
   ],
 };
 

@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { fetchWrapper } from "../../../services/fetchWrapper";
-import GetProductData from "../../../@types/GetProducts";
 import { NextRequest, NextResponse } from "next/server";
+
+import GetProductData from "../../../@types/GetProducts";
+import { fetchWrapper } from "../../../services/fetchWrapper";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
