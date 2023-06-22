@@ -14,8 +14,8 @@ const getProducts = async (search: string) => {
   } = await fetchAppApi<GetProductsData>(search);
 
   return {
-    paging,
     query,
+    paging,
     results,
     sortApi: sort,
     available_sorts,
