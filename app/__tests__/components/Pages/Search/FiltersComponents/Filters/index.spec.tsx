@@ -115,7 +115,7 @@ describe("<Filters />", () => {
     fireEvent.click(screen.getByTestId("filter-li"));
 
     expect(handleClickOnFilterOptionMock).toHaveBeenCalledWith(
-      availableFilters.values[0].id
+      availableFilters.values[0]?.id
     );
   });
 
