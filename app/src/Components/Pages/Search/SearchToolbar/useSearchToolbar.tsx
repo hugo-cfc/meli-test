@@ -36,7 +36,7 @@ const useSearchToolbar = () => {
     });
   };
 
-  return { handleOpenModal, pathname, toolbarOptions };
+  return { handleOpenModal, pathname, toolbarOptions, router, searchParams };
 };
 
 export default useSearchToolbar;
