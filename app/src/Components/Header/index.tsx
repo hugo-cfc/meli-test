@@ -41,6 +41,7 @@ const Header = () => {
           <button
             type="submit"
             className="bg-grayML px-2 py-1 transition-all hover:bg-gray-100"
+            aria-label="Pesquisar"
           >
             <Search className="w-4" />
           </button>

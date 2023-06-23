@@ -77,6 +77,7 @@ const FiltersMobileModal = () => {
               className="flex items-center justify-center rounded-[100%] bg-blueML disabled:bg-grayML"
               disabled={isNotAvailableToSubmit}
               data-testid="submit-button"
+              aria-label="Definir filtro"
             >
               <ChevronRight
                 className="w-6 text-white"

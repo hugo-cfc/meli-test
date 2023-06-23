@@ -24,9 +24,6 @@ export const metadata: Metadata = {
     images:
       "https://http2.mlstatic.com/D_NQ_668621-MLA70002392477_062023-OO.webp",
   },
-  alternates: {
-    canonical: "/",
-  },
 };
 
 export default function RootLayout({

@@ -12,6 +12,7 @@ export default function EmptySearch({ description }: EmptySearchProps) {
         className="w-[200px] animate-fadeImage tablet:w-[400px]"
         src={SearchImage}
         alt={description}
+        priority
       />
 
       <h1
