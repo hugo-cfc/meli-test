@@ -31,7 +31,7 @@ const useSorter = () => {
     router.push(generatedUrl);
   };
 
-  return { handleClickOnSortOption };
+  return { handleClickOnSortOption, router, searchParams };
 };
 
 export default useSorter;

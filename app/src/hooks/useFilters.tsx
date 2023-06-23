@@ -76,6 +76,8 @@ const useFilters = () => {
     handleRemoveFilter,
     isValidValue,
     isNotAvailableToSubmit,
+    router,
+    searchParams,
   };
 };
 

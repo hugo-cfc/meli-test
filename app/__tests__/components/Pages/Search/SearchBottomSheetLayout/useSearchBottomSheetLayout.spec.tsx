@@ -33,7 +33,7 @@ const wrapperReduxMock = ({ children }: { children: React.ReactNode }) => (
   <Provider store={store}>{children}</Provider>
 );
 
-describe("useSearchBottomSheetLayout", () => {
+describe("useSearchBottomSheetLayout()", () => {
   it("should call handleCloseModal and redirect to obtained url", () => {
     (useSearchParams as jest.Mock).mockReturnValue("teste=12");
 

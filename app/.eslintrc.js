@@ -31,7 +31,7 @@ module.exports = {
         extensions: [".js", ".jsx", ".ts", ".tsx"],
       },
       typescript: {
-        project: "./tsconfig.json",
+        project: __dirname + "/tsconfig.json",
       },
     },
     react: {
@@ -44,7 +44,6 @@ module.exports = {
     "prettier/prettier": [
       "error",
       {
-        // plugins: ["prettier-plugin-tailwindcss"],
         printWidth: 80,
         endOfLine: "lf",
         singleQuote: false,

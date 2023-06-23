@@ -1,5 +1,5 @@
-import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { ArrowDownUp, SlidersHorizontal } from "lucide-react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 const useSearchToolbar = () => {
@@ -36,7 +36,7 @@ const useSearchToolbar = () => {
     });
   };
 
-  return { handleOpenModal, pathname, toolbarOptions };
+  return { handleOpenModal, pathname, toolbarOptions, router, searchParams };
 };
 
 export default useSearchToolbar;

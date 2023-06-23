@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { fetchWrapper } from "../../../services/fetchWrapper";
-import GetProductData from "../../../@types/GetProducts";
 import { NextRequest, NextResponse } from "next/server";
+
+import GetProductData from "../../../@types/GetProducts";
+import { fetchWrapper } from "../../../services/fetchWrapper";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
@@ -9,6 +10,10 @@ export async function GET(request: NextRequest) {
   const search = searchParams.get("q");
   const sort = searchParams.get("sort");
   const price = searchParams.get("price");
+
+  const url = `${search}${sort ? `&sort=${sort}` : `${""}`}${
+    price ? `&price=${price}` : `${""}`
+  }`;
 
   const {
     query,
@@ -18,11 +23,7 @@ export async function GET(request: NextRequest) {
     available_sorts,
     filters,
     available_filters,
-  } = await fetchWrapper<GetProductData>(
-    `${search}${sort ? `&sort=${sort}` : `${""}`}${
-      price ? `&price=${price}` : `${""}`
-    }`
-  );
+  } = await fetchWrapper<GetProductData>(url);
 
   const sortSortersById = [sortApi, ...available_sorts].sort((a, b) => {
     const sorterA = a.id;

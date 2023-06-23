@@ -22,12 +22,19 @@ const SearchToolbar = () => {
   return (
     <>
       {isLoading ? (
-        <nav className={`flex h-[104px] tablet:hidden`} />
+        <nav
+          className={`flex h-[104px] tablet:hidden`}
+          data-testid="nav-loading"
+        />
       ) : (
         <nav
           className={`mb-4 ${totalResults === 0 ? "hidden" : "tablet:flex"}`}
+          data-testid="nav-is-not-loading"
         >
-          <div className="flex h-12 w-screen bg-white tablet:hidden">
+          <div
+            className="flex h-12 w-screen bg-white tablet:hidden"
+            data-testid="container"
+          >
             {toolbarOptions.map((item) => (
               <button
                 key={item.type}
@@ -35,6 +42,7 @@ const SearchToolbar = () => {
                   !availableFilters && item.type === "filter" && "hidden"
                 }`}
                 onClick={() => handleOpenModal(item.type)}
+                data-testid={`button-option-${item.type}`}
               >
                 {item.icon}
                 <span className="text-sm font-light">{item.title}</span>

@@ -23,7 +23,7 @@ jest.mock("next/navigation", () => ({
 }));
 
 describe("<DropdownSorter />", () => {
-  it("should render correctly", () => {
+  it("should render DropdownSorter correctly", () => {
     (useSearchParams as jest.Mock).mockReturnValue({
       get: jest.fn().mockReturnValue("relevance"),
     });
