@@ -121,6 +121,7 @@ const Filters = () => {
                 className="flex h-5 w-5 items-center justify-center rounded-[100%] bg-blueML disabled:bg-gray-400"
                 disabled={isNotAvailableToSubmit}
                 data-testid="submit-button"
+                aria-label="Definir filtro"
               >
                 <ChevronRight
                   className="w-4 text-white"
