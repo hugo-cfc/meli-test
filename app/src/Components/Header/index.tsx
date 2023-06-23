@@ -1,10 +1,10 @@
 "use client";
 
+import LogoImage from "@/assets/logos/logo_ml.png";
 import { Search } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import LogoImage from "../../assets/logos/logo_ml.png";
 import Input from "../Input";
 import useHeader from "./useHeader";
 
