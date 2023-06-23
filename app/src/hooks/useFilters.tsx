@@ -1,8 +1,8 @@
+import { RootState } from "@/app/redux/store";
+import urlGenerator from "@/functions/urlGenerator";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useState } from "react";
 
-import { RootState } from "../app/redux/store";
-import urlGenerator from "../functions/urlGenerator";
 import { useAppSelector } from "./reduxHooks/reduxHooks";
 
 const useFilters = () => {

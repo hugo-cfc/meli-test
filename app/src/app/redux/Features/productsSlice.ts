@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/default-param-last */
 "use client";
 
-import { combineReducers, createSlice } from "@reduxjs/toolkit";
+import Filter from "@/@types/Filter";
+import Product from "@/@types/Product";
+import Sort from "@/@types/Sort";
 import type { PayloadAction } from "@reduxjs/toolkit";
-
-import Filter from "../../../@types/Filter";
-import Product from "../../../@types/Product";
-import Sort from "../../../@types/Sort";
+import { combineReducers, createSlice } from "@reduxjs/toolkit";
 
 export interface ProductState {
   totalResults: number;

@@ -1,8 +1,8 @@
+import { setIsSorterDropdownOpen } from "@/app/redux/Features/productsSlice";
+import { RootState } from "@/app/redux/store";
+import urlGenerator from "@/functions/urlGenerator";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { setIsSorterDropdownOpen } from "../app/redux/Features/productsSlice";
-import { RootState } from "../app/redux/store";
-import urlGenerator from "../functions/urlGenerator";
 import { useAppDispatch, useAppSelector } from "./reduxHooks/reduxHooks";
 
 const useSorter = () => {
