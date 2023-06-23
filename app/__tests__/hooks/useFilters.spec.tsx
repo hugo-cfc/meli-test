@@ -107,7 +107,7 @@ describe("useFilters()", () => {
     expect(router.push).toHaveBeenCalledWith(generatedUrl);
   });
 
-  test("handleSubmitManualFilterOption run preventDefault", () => {
+  it("handleSubmitManualFilterOption run preventDefault", () => {
     const { result } = renderHook(() => useFilters(), {
       wrapper: wrapperReduxMock,
     });
