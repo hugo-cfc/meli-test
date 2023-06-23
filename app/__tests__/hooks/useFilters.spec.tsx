@@ -1,3 +1,5 @@
+import urlGenerator from "@/functions/urlGenerator";
+import useFilters from "@/hooks/useFilters";
 import {
   act,
   fireEvent,
@@ -8,9 +10,6 @@ import {
 import { FormEvent } from "react";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
-
-import urlGenerator from "../../src/functions/urlGenerator";
-import useFilters from "../../src/hooks/useFilters";
 
 jest.mock("next/navigation", () => ({
   useSearchParams: jest.fn(() => ({

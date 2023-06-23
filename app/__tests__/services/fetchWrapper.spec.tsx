@@ -1,7 +1,7 @@
+import { fetchWrapper } from "@/services/fetchWrapper";
 import { render, screen } from "@testing-library/react";
 
 import { server } from "../../mocks/serverMockWrapper";
-import { fetchWrapper } from "../../src/services/fetchWrapper";
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());

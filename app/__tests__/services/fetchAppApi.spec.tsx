@@ -1,7 +1,7 @@
+import { fetchAppApi } from "@/services/fetchAppApi";
 import { render, screen } from "@testing-library/react";
 
 import { server } from "../../mocks/serverMock";
-import { fetchAppApi } from "../../src/services/fetchAppApi";
 
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());

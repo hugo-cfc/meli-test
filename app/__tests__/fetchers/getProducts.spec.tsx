@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/naming-convention */
+import getProducts from "@/fetchers/getProducts";
 import { waitFor } from "@testing-library/react";
 
 import { availableSorts } from "../../mocks/availableSorts";
 import { product } from "../../mocks/product";
 import { server } from "../../mocks/serverMockFetcher";
 import { sortMock } from "../../mocks/sort";
-import getProducts from "../../src/fetchers/getProducts";
 
 describe("getProducts", () => {
   beforeAll(() => server.listen());

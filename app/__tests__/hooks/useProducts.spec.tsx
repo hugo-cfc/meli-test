@@ -1,10 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import { renderHook } from "@testing-library/react-hooks";
-import { Provider } from "react-redux";
-import configureStore from "redux-mock-store";
-
-import { server } from "../../mocks/serverMockFetcher";
-import { serviceResponseMock } from "../../mocks/serviceResponseMock";
 import {
   ProductState,
   setAvailableFilters,
@@ -13,8 +7,14 @@ import {
   setSearch,
   setSort,
   setTotalResults,
-} from "../../src/app/redux/Features/productsSlice";
-import useProducts from "../../src/hooks/useProducts";
+} from "@/app/redux/Features/productsSlice";
+import useProducts from "@/hooks/useProducts";
+import { renderHook } from "@testing-library/react-hooks";
+import { Provider } from "react-redux";
+import configureStore from "redux-mock-store";
+
+import { server } from "../../mocks/serverMockFetcher";
+import { serviceResponseMock } from "../../mocks/serviceResponseMock";
 
 jest.mock("next/navigation", () => ({
   usePathname: jest.fn(() => ({
