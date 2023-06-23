@@ -1,9 +1,8 @@
 "use client";
 
+import Sort from "@/@types/Sort";
+import useSorter from "@/hooks/useSorters";
 import { useSearchParams } from "next/navigation";
-
-import Sort from "../../../../../@types/Sort";
-import useSorter from "../../../../../hooks/useSorters";
 
 interface SorterDropdownItemProps {
   item: Sort;

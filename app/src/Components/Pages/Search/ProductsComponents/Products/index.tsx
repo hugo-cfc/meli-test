@@ -1,9 +1,10 @@
 "use client";
 
-import { RootState } from "../../../../../app/redux/store";
-import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
-import useProducts from "../../../../../hooks/useProducts";
-import EmptySearch from "../../../../EmptySearch";
+import { RootState } from "@/app/redux/store";
+import EmptySearch from "@/Components/EmptySearch";
+import { useAppSelector } from "@/hooks/reduxHooks/reduxHooks";
+import useProducts from "@/hooks/useProducts";
+
 import Product from "../Product";
 import { ProductsSkeleton } from "./skeleton";
 

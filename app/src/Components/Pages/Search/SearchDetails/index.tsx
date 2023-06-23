@@ -1,4 +1,5 @@
-import Filter from "../../../../@types/Filter";
+import Filter from "@/@types/Filter";
+
 import FilterBadge from "../FiltersComponents/FilterBadge";
 
 interface SearchDetailsProps {
