@@ -1,4 +1,4 @@
-import urlGenerator from "../../src/functions/urlGenerator";
+import urlGenerator from "@/functions/urlGenerator";
 
 describe("urlGenerator", () => {
   it("should generate the correct URL without options", () => {

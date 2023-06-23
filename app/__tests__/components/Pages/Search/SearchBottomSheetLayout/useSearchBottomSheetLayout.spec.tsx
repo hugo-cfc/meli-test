@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/unbound-method */
+import useSearchBottomSheetLayout from "@/Components/Pages/Search/SearchBottomSheetLayout/useSearchBottomSheetLayout";
 import {
   act,
   fireEvent,
@@ -9,8 +10,6 @@ import {
 import { useSearchParams } from "next/navigation";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
-
-import useSearchBottomSheetLayout from "../../../../../src/Components/Pages/Search/SearchBottomSheetLayout/useSearchBottomSheetLayout";
 
 jest.mock("next/navigation", () => ({
   useSearchParams: jest.fn(() => "teste=12"),

@@ -1,8 +1,9 @@
 "use client";
 
-import { RootState } from "../../../../app/redux/store";
-import { useAppSelector } from "../../../../hooks/reduxHooks/reduxHooks";
-import useProducts from "../../../../hooks/useProducts";
+import { RootState } from "@/app/redux/store";
+import { useAppSelector } from "@/hooks/reduxHooks/reduxHooks";
+import useProducts from "@/hooks/useProducts";
+
 import FiltersMobileModal from "../FiltersComponents/FiltersMobileModal";
 import SearchDetails from "../SearchDetails";
 import SorterMobileModal from "../SorterComponents/SorterMobileModal";

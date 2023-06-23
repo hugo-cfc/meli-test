@@ -1,10 +1,10 @@
+import Products from "@/Components/Pages/Search/ProductsComponents/Products";
+import useProducts from "@/hooks/useProducts";
 import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 
 import { product } from "../../../../../../mocks/product";
-import Products from "../../../../../../src/Components/Pages/Search/ProductsComponents/Products";
-import useProducts from "../../../../../../src/hooks/useProducts";
 
 jest.mock("../../../../../../src/hooks/useProducts", () => {
   return jest.fn(() => ({

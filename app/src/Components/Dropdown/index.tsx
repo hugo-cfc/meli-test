@@ -1,13 +1,9 @@
 "use client";
 
+import { setIsSorterDropdownOpen } from "@/app/redux/Features/productsSlice";
+import { RootState } from "@/app/redux/store";
+import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks/reduxHooks";
 import { ReactNode } from "react";
-
-import { setIsSorterDropdownOpen } from "../../app/redux/Features/productsSlice";
-import { RootState } from "../../app/redux/store";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "../../hooks/reduxHooks/reduxHooks";
 
 const Dropdown = ({ children }: { children: ReactNode }) => {
   const dispatch = useAppDispatch();

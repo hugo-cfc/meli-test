@@ -1,9 +1,8 @@
+import { setIsSorterDropdownOpen } from "@/app/redux/Features/productsSlice";
+import Dropdown from "@/Components/Dropdown";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
-
-import { setIsSorterDropdownOpen } from "../../../src/app/redux/Features/productsSlice";
-import Dropdown from "../../../src/Components/Dropdown";
 
 const mockStore = configureStore([]);
 

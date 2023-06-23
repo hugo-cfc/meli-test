@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import GetProductsData from "../@types/GetProducts";
-import { fetchAppApi } from "../services/fetchAppApi";
+import GetProductsData from "@/@types/GetProducts";
+import { fetchAppApi } from "@/services/fetchAppApi";
 
 const getProducts = async (search: string) => {
   const {

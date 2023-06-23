@@ -1,3 +1,4 @@
+import Product from "@/Components/Pages/Search/ProductsComponents/Product";
 import { render, screen } from "@testing-library/react";
 
 import {
@@ -5,7 +6,6 @@ import {
   noFreeShipingProduct,
   noInstallmentsProduct,
 } from "../../../../../../mocks/product";
-import Product from "../../../../../../src/Components/Pages/Search/ProductsComponents/Product";
 
 describe("<Product />", () => {
   it("should render Product, free shipping and installments", () => {

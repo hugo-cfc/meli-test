@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
+import FiltersMobileModal from "@/Components/Pages/Search/FiltersComponents/FiltersMobileModal";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
@@ -10,7 +11,6 @@ import {
   noFilters,
 } from "../../../../../../mocks/availableFilters";
 import { filters, filtersWithoutPrice } from "../../../../../../mocks/filters";
-import FiltersMobileModal from "../../../../../../src/Components/Pages/Search/FiltersComponents/FiltersMobileModal";
 
 const mockStore = configureStore([]);
 

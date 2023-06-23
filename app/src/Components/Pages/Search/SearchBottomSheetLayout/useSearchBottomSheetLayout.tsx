@@ -1,7 +1,6 @@
+import { RootState } from "@/app/redux/store";
+import { useAppSelector } from "@/hooks/reduxHooks/reduxHooks";
 import { useRouter, useSearchParams } from "next/navigation";
-
-import { RootState } from "../../../../app/redux/store";
-import { useAppSelector } from "../../../../hooks/reduxHooks/reduxHooks";
 
 const useSearchBottomSheetLayout = () => {
   const router = useRouter();

@@ -1,6 +1,5 @@
+import Input from "@/Components/Input/index";
 import { render, screen } from "@testing-library/react";
-
-import Input from "../../../src/Components/Input/index";
 
 describe("<Input />", () => {
   it("passes additional props to the input element", () => {

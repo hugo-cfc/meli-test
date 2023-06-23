@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/unbound-method */
+import useHeader from "@/Components/Header/useHeader";
 import {
   act,
   fireEvent,
@@ -6,8 +7,6 @@ import {
   renderHook,
   screen,
 } from "@testing-library/react";
-
-import useHeader from "../../../src/Components/Header/useHeader";
 
 jest.mock("next/navigation", () => ({
   usePathname: jest.fn(() => ""),

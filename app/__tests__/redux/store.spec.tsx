@@ -1,3 +1,4 @@
+import { store } from "@/app/redux/store";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 
@@ -7,7 +8,6 @@ import { filters } from "../../mocks/filters";
 import { product } from "../../mocks/product";
 import ReduxTesterComponent from "../../mocks/ReduxTesterComponent";
 import { sortMock } from "../../mocks/sort";
-import { store } from "../../src/app/redux/store";
 
 describe("Products Redux Store", () => {
   it("should returns Products Redux store initialState with correct values", () => {

@@ -1,3 +1,5 @@
+import SearchToolbar from "@/Components/Pages/Search/SearchToolbar";
+import useProducts from "@/hooks/useProducts";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { ArrowDownUp, SlidersHorizontal } from "lucide-react";
 import { Provider } from "react-redux";
@@ -5,8 +7,6 @@ import configureStore from "redux-mock-store";
 
 import { availableFilters } from "../../../../../mocks/availableFilters";
 import { filters } from "../../../../../mocks/filters";
-import SearchToolbar from "../../../../../src/Components/Pages/Search/SearchToolbar";
-import useProducts from "../../../../../src/hooks/useProducts";
 
 const toolbarOptions = [
   {

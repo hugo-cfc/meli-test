@@ -1,10 +1,10 @@
+import DropdownSorter from "@/Components/Pages/Search/SorterComponents/DropdownSorter";
 import { render, screen } from "@testing-library/react";
 import { useSearchParams } from "next/navigation";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 
 import { sortMock } from "../../../../../../mocks/sort";
-import DropdownSorter from "../../../../../../src/Components/Pages/Search/SorterComponents/DropdownSorter";
 
 const mockStore = configureStore([]);
 

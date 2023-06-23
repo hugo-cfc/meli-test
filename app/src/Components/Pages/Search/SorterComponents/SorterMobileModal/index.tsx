@@ -1,11 +1,11 @@
 "use client";
 
+import { RootState } from "@/app/redux/store";
+import BottomSheet from "@/Components/BottomSheet";
+import { useAppSelector } from "@/hooks/reduxHooks/reduxHooks";
+import useSorter from "@/hooks/useSorters";
 import { useSearchParams } from "next/navigation";
 
-import { RootState } from "../../../../../app/redux/store";
-import { useAppSelector } from "../../../../../hooks/reduxHooks/reduxHooks";
-import useSorter from "../../../../../hooks/useSorters";
-import BottomSheet from "../../../../BottomSheet";
 import SearchBottomSheetLayout from "../../SearchBottomSheetLayout";
 
 const SorterMobileModal = () => {

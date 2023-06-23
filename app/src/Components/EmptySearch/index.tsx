@@ -1,6 +1,5 @@
+import SearchImage from "@/assets/images/search.svg";
 import Image from "next/image";
-
-import SearchImage from "../../assets/images/search.svg";
 
 interface EmptySearchProps {
   description: string;

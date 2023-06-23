@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
+import SearchBottomSheetLayout from "@/Components/Pages/Search/SearchBottomSheetLayout/index";
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
-
-import SearchBottomSheetLayout from "../../../../../src/Components/Pages/Search/SearchBottomSheetLayout/index";
 
 const mockStore = configureStore([]);
 
