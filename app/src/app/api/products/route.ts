@@ -11,6 +11,10 @@ export async function GET(request: NextRequest) {
   const sort = searchParams.get("sort");
   const price = searchParams.get("price");
 
+  const url = `${search}${sort ? `&sort=${sort}` : `${""}`}${
+    price ? `&price=${price}` : `${""}`
+  }`;
+
   const {
     query,
     paging,
@@ -19,11 +23,7 @@ export async function GET(request: NextRequest) {
     available_sorts,
     filters,
     available_filters,
-  } = await fetchWrapper<GetProductData>(
-    `${search}${sort ? `&sort=${sort}` : `${""}`}${
-      price ? `&price=${price}` : `${""}`
-    }`
-  );
+  } = await fetchWrapper<GetProductData>(url);
 
   const sortSortersById = [sortApi, ...available_sorts].sort((a, b) => {
     const sorterA = a.id;
