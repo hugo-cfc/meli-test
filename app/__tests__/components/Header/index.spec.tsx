@@ -1,6 +1,5 @@
+import Header from "@/Components/Header";
 import { fireEvent, render, screen } from "@testing-library/react";
-
-import Header from "../../../src/Components/Header";
 
 jest.mock("next/navigation", () => ({
   usePathname: jest.fn(() => "/busca"),

@@ -1,10 +1,10 @@
+import DropdownItem from "@/Components/Pages/Search/SorterComponents/DropdownItem";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { useSearchParams } from "next/navigation";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 
 import { sortMock } from "../../../../../../mocks/sort";
-import DropdownItem from "../../../../../../src/Components/Pages/Search/SorterComponents/DropdownItem";
 
 const mockStore = configureStore([]);
 

@@ -1,11 +1,11 @@
+import { setIsSorterDropdownOpen } from "@/app/redux/Features/productsSlice";
+import Sorter from "@/Components/Pages/Search/SorterComponents/Sorter";
+import useProducts from "@/hooks/useProducts";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import configureStore from "redux-mock-store";
 
 import { sortMock } from "../../../../../../mocks/sort";
-import { setIsSorterDropdownOpen } from "../../../../../../src/app/redux/Features/productsSlice";
-import Sorter from "../../../../../../src/Components/Pages/Search/SorterComponents/Sorter";
-import useProducts from "../../../../../../src/hooks/useProducts";
 
 jest.mock("../../../../../../src/hooks/useProducts", () => {
   return jest.fn(() => ({

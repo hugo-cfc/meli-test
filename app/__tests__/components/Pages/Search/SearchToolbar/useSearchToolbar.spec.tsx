@@ -1,3 +1,4 @@
+import useSearchToolbar from "@/Components/Pages/Search/SearchToolbar/useSearchToolbar";
 import {
   act,
   fireEvent,
@@ -5,8 +6,6 @@ import {
   renderHook,
   screen,
 } from "@testing-library/react";
-
-import useSearchToolbar from "../../../../../src/Components/Pages/Search/SearchToolbar/useSearchToolbar";
 
 jest.mock("next/navigation", () => ({
   useSearchParams: jest.fn(() => "teste=12"),

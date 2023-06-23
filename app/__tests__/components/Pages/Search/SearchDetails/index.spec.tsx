@@ -1,7 +1,7 @@
+import SearchDetails from "@/Components/Pages/Search/SearchDetails";
 import { render, screen } from "@testing-library/react";
 
 import { filters, filtersWithoutPrice } from "../../../../../mocks/filters";
-import SearchDetails from "../../../../../src/Components/Pages/Search/SearchDetails";
 
 jest.mock(
   "../../../../../src/Components/Pages/Search/FiltersComponents/FilterBadge",

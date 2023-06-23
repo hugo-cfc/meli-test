@@ -1,6 +1,5 @@
+import FilterBadge from "@/Components/Pages/Search/FiltersComponents/FilterBadge";
 import { render, screen } from "@testing-library/react";
-
-import FilterBadge from "../../../../../../src/Components/Pages/Search/FiltersComponents/FilterBadge";
 
 jest.mock("../../../../../../src/hooks/useFilters", () => {
   return jest.fn(() => ({

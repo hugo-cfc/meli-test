@@ -1,6 +1,5 @@
+import EmptySearch from "@/Components/EmptySearch";
 import { render, screen } from "@testing-library/react";
-
-import EmptySearch from "../../../src/Components/EmptySearch";
 
 describe("<EmptySearch />", () => {
   it("should render image with alt equal to description", () => {

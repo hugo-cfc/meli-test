@@ -1,7 +1,6 @@
+import BottomSheet from "@/Components/BottomSheet";
 import { render } from "@testing-library/react";
 import { useSearchParams } from "next/navigation";
-
-import BottomSheet from "../../../src/Components/BottomSheet";
 
 jest.mock("next/navigation", () => ({
   useSearchParams: jest.fn(),
