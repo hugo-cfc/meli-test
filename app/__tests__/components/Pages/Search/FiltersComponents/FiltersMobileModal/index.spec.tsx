@@ -83,7 +83,7 @@ describe("<FiltersMobileModal />", () => {
     expect(filterOptionButton).toBeInTheDocument();
     expect(totalResultsSpan).toBeInTheDocument();
     expect(totalResultsSpan).toHaveTextContent(
-      `${initialState.products.availableFilters.values[0].results}`
+      `${initialState.products.availableFilters.values[0]?.results}`
     );
     expect(form).toBeInTheDocument();
     expect(inputMinValue).toBeInTheDocument();
@@ -136,7 +136,7 @@ describe("<FiltersMobileModal />", () => {
     fireEvent.click(screen.getByTestId("filter-option-button"));
 
     expect(handleClickOnFilterOptionMock).toHaveBeenCalledWith(
-      availableFilters.values[0].id
+      availableFilters.values[0]?.id
     );
   });
 

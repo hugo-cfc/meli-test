@@ -64,7 +64,7 @@ const Filters = () => {
             if (filter.id !== "price") return;
 
             return (
-              <FilterBadge key={filter.id} title={filter.values[0].name} />
+              <FilterBadge key={filter.id} title={filter.values[0]?.name} />
             );
           })}
 
