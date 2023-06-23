@@ -31,7 +31,7 @@ module.exports = {
         extensions: [".js", ".jsx", ".ts", ".tsx"],
       },
       typescript: {
-        project: "./tsconfig.json",
+        project: __dirname + "/tsconfig.json",
       },
     },
     react: {
