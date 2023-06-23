@@ -4,11 +4,15 @@
 
 <h2>🛠️ Installation Steps:</h2>
 
+<br/>
+
 <p>1. Clone o projeto</p>
 
 ```
 https://github.com/hugo-cfc/meli-test.git
 ```
+
+<br/>
 
 <p>2. Ir até a pasta app</p>
 
@@ -16,11 +20,19 @@ https://github.com/hugo-cfc/meli-test.git
 cd app
 ```
 
+<br/>
+
 <p>3. Instalar dependências</p>
 
 ```
 yarn
 ```
+
+<br/>
+
+<p>4. Criar arquivo .env.local com o conteúdo que está na descrição deste Readme</p>
+
+<br/>
 
 <p>4. Rodar app</p>
 
